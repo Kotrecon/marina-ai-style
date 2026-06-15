@@ -42,6 +42,8 @@ public class AIRecommendationService
         var requestBodyJson = JsonSerializer.Serialize(requestBody);
         var apiKey = _config["OpenRouter:ApiKey"];
 
+        Console.WriteLine($"[AI-PROMPT]\n{prompt}\n[/AI-PROMPT]");
+
         HttpRequestMessage CreateRequest() =>
             new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions")
             {
