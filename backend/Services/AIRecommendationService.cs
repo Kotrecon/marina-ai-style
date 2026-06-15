@@ -29,7 +29,7 @@ public class AIRecommendationService
 
         var requestBody = new
         {
-            model = "nex-agi/nex-n2-pro:free",
+            model = "meta-llama/llama-3.3-70b-instruct:free",
             messages = new[]
             {
                 new { role = "system", content = "Ты стилист. ПРАВИЛА: 1) Выбери ОБЯЗАТЕЛЬНО минимум 2 вещи — одну для верха, одну для низа. 2) Формат ответа: каждая вещь на новой строке в формате: [ID] Название — совет. 3) Не пиши что в гардеробе не хватает вещей — работай только с тем что есть. 4) В конце дай короткий совет по образу." },
