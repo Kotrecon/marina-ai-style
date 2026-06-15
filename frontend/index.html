@@ -33,6 +33,15 @@
                 <h2 id="auth-title">Вход</h2>
                 <input type="text" id="auth-username" placeholder="Логин">
                 <input type="password" id="auth-password" placeholder="Пароль">
+                <div id="auth-profile-fields" class="hidden">
+                    <input type="text" id="auth-city" placeholder="Город" value="Санкт-Петербург">
+                    <select id="auth-gender">
+                        <option value="">Пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <input type="number" id="auth-age" placeholder="Возраст" min="1" max="120">
+                </div>
                 <button id="auth-submit">Войти</button>
                 <p id="auth-toggle">Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
                 <p id="auth-error" class="error"></p>

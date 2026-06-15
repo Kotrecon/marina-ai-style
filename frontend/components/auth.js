@@ -6,6 +6,7 @@ function showAuthForm(mode) {
     const submit = document.getElementById('auth-submit');
     const toggle = document.getElementById('auth-toggle');
     const error = document.getElementById('auth-error');
+    const profileFields = document.getElementById('auth-profile-fields');
 
     error.textContent = '';
 
@@ -13,10 +14,13 @@ function showAuthForm(mode) {
         title.textContent = 'Вход';
         submit.textContent = 'Войти';
         toggle.innerHTML = 'Нет аккаунта? <a id="auth-switch">Зарегистрироваться</a>';
+        profileFields.classList.add('hidden');
     } else {
         title.textContent = 'Регистрация';
         submit.textContent = 'Зарегистрироваться';
         toggle.innerHTML = 'Есть аккаунт? <a id="auth-switch">Войти</a>';
+        profileFields.classList.remove('hidden');
+        document.getElementById('auth-city').value = userCity || 'Санкт-Петербург';
     }
 
     document.getElementById('auth-switch').addEventListener('click', (e) => {
@@ -35,9 +39,19 @@ document.getElementById('auth-submit').addEventListener('click', async () => {
         return;
     }
 
+    const body = { username, password };
+
+    if (authMode === 'register') {
+        body.city = document.getElementById('auth-city').value.trim() || 'Санкт-Петербург';
+        const gender = document.getElementById('auth-gender').value;
+        const age = document.getElementById('auth-age').value;
+        if (gender) body.gender = gender;
+        if (age) body.age = parseInt(age);
+    }
+
     try {
         const endpoint = authMode === 'login' ? '/auth/login' : '/auth/register';
-        const data = await api(endpoint, 'POST', { username, password, city: userCity, gender: userGender || undefined, age: userAge ? parseInt(userAge) : undefined });
+        const data = await api(endpoint, 'POST', body);
         setAuth(data.token, data.username, data.city, data.gender, data.age);
         showPage('wardrobe');
     } catch (e) {

@@ -32,7 +32,7 @@ public class AIRecommendationService
             model = "nex-agi/nex-n2-pro:free",
             messages = new[]
             {
-                new { role = "system", content = "Ты стилист-консультант. Подбираешь одежду из гардероба пользователя с учётом погоды и повода. Отвечай на русском. Формат: список вещей (название) и короткий совет." },
+                new { role = "system", content = "Ты стилист. ПРАВИЛА: 1) Выбери ОБЯЗАТЕЛЬНО минимум 2 вещи — одну для верха, одну для низа. 2) Формат ответа: каждая вещь на новой строке в формате: [ID] Название — совет. 3) Не пиши что в гардеробе не хватает вещей — работай только с тем что есть. 4) В конце дай короткий совет по образу." },
                 new { role = "user", content = prompt }
             },
             temperature = 0.7,
@@ -116,7 +116,7 @@ public class AIRecommendationService
         foreach (var item in wardrobe)
             sb.AppendLine($"[{item.Id}] {item.Name} | {item.Category} | {item.Color} | {item.Material} | {item.Season} | {item.Style}");
 
-        sb.AppendLine("\nПодбери подходящий образ из моего гардероба. Укажи ID вещей в формате [ID] и дай совет.");
+        sb.AppendLine("\nВАЖНО: Подбери полный образ. МИНИМУМ 2 вещи — одна для верха (рубашка/поло/футболка), одна для низа (джинсы/брюки/юбка). Формат: [ID] Название — совет. Не пиши про отсутствующие вещи.");
 
         return sb.ToString();
     }

@@ -185,6 +185,13 @@ button:hover { background: #2980b9; }
     gap: 0.8rem;
 }
 
+.auth-form input, .auth-form select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
 .auth-form a { color: #3498db; cursor: pointer; }
 .error { color: #e74c3c; font-size: 0.9rem; }
 
