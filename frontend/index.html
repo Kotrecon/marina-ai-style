@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marina AI Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Marina AI Style</h1>
+        <nav id="nav">
+            <button data-page="wardrobe" class="active">Гардероб</button>
+            <button data-page="outfits">Образы</button>
+            <button data-page="recommend">Рекомендация</button>
+            <button data-page="stats">Статистика</button>
+            <button data-page="auth" id="auth-btn">Войти</button>
+        </nav>
+    </header>
+
+    <main id="app">
+        <div id="page-auth" class="page hidden">
+            <div class="auth-form">
+                <h2 id="auth-title">Вход</h2>
+                <input type="text" id="auth-username" placeholder="Логин">
+                <input type="password" id="auth-password" placeholder="Пароль">
+                <button id="auth-submit">Войти</button>
+                <p id="auth-toggle">Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+                <p id="auth-error" class="error"></p>
+            </div>
+        </div>
+
+        <div id="page-wardrobe" class="page">
+            <h2>Мой гардероб</h2>
+            <div class="filters">
+                <select id="filter-category">
+                    <option value="">Все категории</option>
+                </select>
+                <select id="filter-season">
+                    <option value="">Все сезоны</option>
+                    <option value="зима">Зима</option>
+                    <option value="весна">Весна</option>
+                    <option value="лето">Лето</option>
+                    <option value="осень">Осень</option>
+                </select>
+            </div>
+            <button id="add-clothes-btn">+ Добавить вещь</button>
+            <div id="clothes-list" class="grid"></div>
+
+            <div id="add-clothes-form" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Новая вещь</h3>
+                    <input type="text" id="c-name" placeholder="Название">
+                    <select id="c-category">
+                        <option value="верх">Верх</option>
+                        <option value="низ">Низ</option>
+                        <option value="обувь">Обувь</option>
+                        <option value="акксессуар">Аксессуар</option>
+                    </select>
+                    <input type="text" id="c-color" placeholder="Цвет">
+                    <input type="text" id="c-material" placeholder="Материал">
+                    <select id="c-season">
+                        <option value="зима">Зима</option>
+                        <option value="весна">Весна</option>
+                        <option value="лето">Лето</option>
+                        <option value="осень">Осень</option>
+                    </select>
+                    <select id="c-style">
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="sport">Sport</option>
+                        <option value="street">Street</option>
+                    </select>
+                    <button id="c-submit">Добавить</button>
+                    <button id="c-cancel">Отмена</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-outfits" class="page hidden">
+            <h2>Образы</h2>
+            <button id="add-outfit-btn">+ Создать outfit</button>
+            <div id="outfits-list" class="grid"></div>
+        </div>
+
+        <div id="page-recommend" class="page hidden">
+            <h2>AI-рекомендация</h2>
+            <select id="rec-season">
+                <option value="зима">Зима</option>
+                <option value="весна">Весна</option>
+                <option value="лето">Лето</option>
+                <option value="осень">Осень</option>
+            </select>
+            <input type="text" id="rec-occasion" placeholder="Повод (необязательно)">
+            <button id="rec-submit">Получить рекомендацию</button>
+            <div id="rec-result"></div>
+        </div>
+
+        <div id="page-stats" class="page hidden">
+            <h2>Статистика</h2>
+            <div id="stats-content"></div>
+        </div>
+    </main>
+
+    <script src="components/auth.js"></script>
+    <script src="components/wardrobe.js"></script>
+    <script src="components/outfits.js"></script>
+    <script src="components/recommend.js"></script>
+    <script src="components/stats.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
