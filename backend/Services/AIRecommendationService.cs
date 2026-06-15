@@ -124,9 +124,10 @@ public class AIRecommendationService
     private static List<int> MatchItems(string response, List<ClothesResponse> wardrobe)
     {
         var ids = new List<int>();
+        var lower = response.ToLower();
         foreach (var item in wardrobe)
         {
-            if (response.Contains($"[{item.Id}]"))
+            if (response.Contains($"[{item.Id}]") || lower.Contains(item.Name.ToLower()))
                 ids.Add(item.Id);
         }
         return ids;
