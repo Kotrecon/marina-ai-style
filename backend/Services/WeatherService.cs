@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json;
 
 namespace MarinaAiStyle.Services;
@@ -8,15 +9,40 @@ public class WeatherService
 
     public WeatherService(HttpClient http) => _http = http;
 
-    public async Task<WeatherData> GetWeatherAsync(double lat, double lon)
+    public async Task<WeatherData?> GetWeatherByCityAsync(string city)
+    {
+        var geoUrl = new Uri($"https://geocoding-api.open-meteo.com/v1/search?name={Uri.EscapeDataString(city)}&count=1&language=ru");
+        var geoReq = new HttpRequestMessage(HttpMethod.Get, geoUrl);
+        var geoRes = await _http.SendAsync(geoReq);
+        if (!geoRes.IsSuccessStatusCode) return null;
+        var geoResponse = JsonSerializer.Deserialize<JsonElement>(await geoRes.Content.ReadAsStringAsync());
+
+        if (!geoResponse.TryGetProperty("results", out var results) || results.GetArrayLength() == 0)
+            return null;
+
+        var location = results[0];
+        var lat = double.Parse(location.GetProperty("latitude").GetRawText(), CultureInfo.InvariantCulture);
+        var lon = double.Parse(location.GetProperty("longitude").GetRawText(), CultureInfo.InvariantCulture);
+        var name = location.TryGetProperty("name", out var n) ? n.GetString() ?? city : city;
+
+        var weather = await GetWeatherAsync(lat, lon);
+        if (weather != null)
+            weather.CityName = name;
+        return weather;
+    }
+
+    public async Task<WeatherData?> GetWeatherAsync(double lat, double lon)
     {
         var url = $"https://api.open-meteo.com/v1/forecast?" +
-                  $"latitude={lat}&longitude={lon}" +
+                  $"latitude={lat.ToString(CultureInfo.InvariantCulture)}&longitude={lon.ToString(CultureInfo.InvariantCulture)}" +
                   $"&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m" +
                   $"&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max" +
                   $"&timezone=auto&forecast_days=1";
 
-        var response = await _http.GetFromJsonAsync<JsonElement>(url);
+        var req = new HttpRequestMessage(HttpMethod.Get, url);
+        var res = await _http.SendAsync(req);
+        if (!res.IsSuccessStatusCode) return null;
+        var response = JsonSerializer.Deserialize<JsonElement>(await res.Content.ReadAsStringAsync());
 
         if (response.ValueKind == JsonValueKind.Array)
             response = response[0];
@@ -26,12 +52,12 @@ public class WeatherService
 
         return new WeatherData
         {
-            Temperature = current.GetProperty("temperature_2m").GetDouble(),
+            Temperature = double.Parse(current.GetProperty("temperature_2m").GetRawText(), CultureInfo.InvariantCulture),
             Humidity = current.GetProperty("relative_humidity_2m").GetInt32(),
-            WindSpeed = current.GetProperty("wind_speed_10m").GetDouble(),
+            WindSpeed = double.Parse(current.GetProperty("wind_speed_10m").GetRawText(), CultureInfo.InvariantCulture),
             WeatherCode = current.GetProperty("weather_code").GetInt32(),
-            TempMax = daily.GetProperty("temperature_2m_max")[0].GetDouble(),
-            TempMin = daily.GetProperty("temperature_2m_min")[0].GetDouble(),
+            TempMax = double.Parse(daily.GetProperty("temperature_2m_max")[0].GetRawText(), CultureInfo.InvariantCulture),
+            TempMin = double.Parse(daily.GetProperty("temperature_2m_min")[0].GetRawText(), CultureInfo.InvariantCulture),
             PrecipitationChance = daily.GetProperty("precipitation_probability_max")[0].GetInt32(),
             Description = MapWeatherCode(current.GetProperty("weather_code").GetInt32())
         };
@@ -62,7 +88,7 @@ public class WeatherService
             tips.Add("Тепло — лёгкая одежда, избегай тяжёлых тканей");
 
         if (weather.PrecipitationChance > 50)
-            tips.Add("Высокая вероятность дождя — возьми зонт,避开 лёгкие ткани");
+            tips.Add("Высокая вероятность дождя — возьми зонт");
 
         if (weather.WindSpeed > 20)
             tips.Add("Сильный ветер — избегай свободных вещей");
@@ -89,6 +115,7 @@ public class WeatherService
 
 public class WeatherData
 {
+    public string CityName { get; set; } = string.Empty;
     public double Temperature { get; set; }
     public int Humidity { get; set; }
     public double WindSpeed { get; set; }

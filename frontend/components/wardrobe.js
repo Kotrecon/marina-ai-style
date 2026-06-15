@@ -19,6 +19,9 @@ function renderClothes(items) {
     const list = document.getElementById('clothes-list');
     list.innerHTML = items.map(c => `
         <div class="card">
+            ${c.hasPhoto
+                ? `<img class="card-photo" data-photo-id="${c.id}" alt="${c.name}">`
+                : `<div class="card-photo-placeholder">📷</div>`}
             <h4>${c.name}</h4>
             <div class="meta">
                 <span class="color-dot" style="background:${c.color}"></span>
@@ -26,9 +29,48 @@ function renderClothes(items) {
             </div>
             <div class="meta">${c.style} | ${c.material || '—'}</div>
             <div class="meta">Надевали: ${c.wearCount} раз</div>
-            <button onclick="deleteClothes(${c.id})">Удалить</button>
+            <div class="card-actions">
+                <label class="btn-photo">
+                    📷 ${c.hasPhoto ? 'Заменить' : 'Добавить фото'}
+                    <input type="file" accept="image/*" hidden onchange="uploadPhoto(${c.id}, this)">
+                </label>
+                <button class="btn-delete" onclick="deleteClothes(${c.id})">Удалить</button>
+            </div>
         </div>
     `).join('');
+
+    document.querySelectorAll('.card-photo[data-photo-id]').forEach(loadCardPhoto);
+}
+
+async function loadCardPhoto(img) {
+    const id = img.dataset.photoId;
+    try {
+        const res = await fetch(`${API}/clothes/${id}/photo`, { headers: headers() });
+        if (res.ok) {
+            const blob = await res.blob();
+            img.src = URL.createObjectURL(blob);
+        }
+    } catch (e) {}
+}
+
+async function uploadPhoto(id, input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        const res = await fetch(`${API}/clothes/${id}/photo`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
+            body: formData
+        });
+        if (!res.ok) throw new Error('Ошибка загрузки');
+        loadWardrobe();
+    } catch (e) {
+        alert(e.message);
+    }
 }
 
 async function deleteClothes(id) {
@@ -60,9 +102,26 @@ document.getElementById('c-submit').addEventListener('click', async () => {
         return;
     }
 
-    await api('/clothes', 'POST', body);
-    document.getElementById('add-clothes-form').classList.add('hidden');
-    loadWardrobe();
+    try {
+        const result = await api('/clothes', 'POST', body);
+
+        const photoInput = document.getElementById('c-photo');
+        if (photoInput.files[0]) {
+            const formData = new FormData();
+            formData.append('file', photoInput.files[0]);
+            await fetch(`${API}/clothes/${result.id}/photo`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+        }
+
+        document.getElementById('add-clothes-form').classList.add('hidden');
+        photoInput.value = '';
+        loadWardrobe();
+    } catch (e) {
+        alert(e.message);
+    }
 });
 
 document.getElementById('filter-category').addEventListener('change', loadWardrobe);

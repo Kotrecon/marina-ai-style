@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<Outfit> Outfits => Set<Outfit>();
     public DbSet<OutfitItem> OutfitItems => Set<OutfitItem>();
     public DbSet<DressCode> DressCodes => Set<DressCode>();
+    public DbSet<Recommendation> Recommendations => Set<Recommendation>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

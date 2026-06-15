@@ -37,8 +37,8 @@ document.getElementById('auth-submit').addEventListener('click', async () => {
 
     try {
         const endpoint = authMode === 'login' ? '/auth/login' : '/auth/register';
-        const data = await api(endpoint, 'POST', { username, password });
-        setAuth(data.token, data.username);
+        const data = await api(endpoint, 'POST', { username, password, city: userCity, gender: userGender || undefined, age: userAge ? parseInt(userAge) : undefined });
+        setAuth(data.token, data.username, data.city, data.gender, data.age);
         showPage('wardrobe');
     } catch (e) {
         error.textContent = e.message;

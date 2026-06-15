@@ -32,6 +32,12 @@ public class Clothes
     [Column("image_path")]
     public string? ImagePath { get; set; }
 
+    [Column("photo_data")]
+    public byte[]? PhotoData { get; set; }
+
+    [Column("photo_content_type")]
+    public string? PhotoContentType { get; set; }
+
     [Column("wear_count")]
     public int WearCount { get; set; }
 

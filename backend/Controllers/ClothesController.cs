@@ -37,7 +37,8 @@ public class ClothesController : ControllerBase
             .OrderByDescending(c => c.CreatedAt)
             .Select(c => new ClothesResponse(
                 c.Id, c.Name, c.Category, c.Color, c.Material,
-                c.Season, c.Style, c.ImagePath, c.WearCount, c.CreatedAt))
+                c.Season, c.Style, c.ImagePath, c.WearCount, c.CreatedAt,
+                null, c.PhotoData != null))
             .ToListAsync();
 
         return Ok(items);
@@ -49,9 +50,14 @@ public class ClothesController : ControllerBase
         var c = await _db.Clothes.FirstOrDefaultAsync(c => c.Id == id && c.UserId == UserId);
         if (c == null) return NotFound();
 
+        var photoBase64 = c.PhotoData != null
+            ? $"data:{c.PhotoContentType};base64,{Convert.ToBase64String(c.PhotoData)}"
+            : null;
+
         return Ok(new ClothesResponse(
             c.Id, c.Name, c.Category, c.Color, c.Material,
-            c.Season, c.Style, c.ImagePath, c.WearCount, c.CreatedAt));
+            c.Season, c.Style, c.ImagePath, c.WearCount, c.CreatedAt,
+            PhotoBase64: photoBase64, HasPhoto: c.PhotoData != null));
     }
 
     [HttpPost]
@@ -103,5 +109,31 @@ public class ClothesController : ControllerBase
         _db.Clothes.Remove(clothes);
         await _db.SaveChangesAsync();
         return NoContent();
+    }
+
+    [HttpPost("{id}/photo")]
+    public async Task<IActionResult> UploadPhoto(int id, IFormFile file)
+    {
+        var clothes = await _db.Clothes.FirstOrDefaultAsync(c => c.Id == id && c.UserId == UserId);
+        if (clothes == null) return NotFound();
+
+        using var ms = new MemoryStream();
+        await file.CopyToAsync(ms);
+
+        clothes.PhotoData = ms.ToArray();
+        clothes.PhotoContentType = file.ContentType;
+        await _db.SaveChangesAsync();
+
+        return Ok(new { message = "Photo uploaded" });
+    }
+
+    [HttpGet("{id}/photo")]
+    public async Task<IActionResult> GetPhoto(int id)
+    {
+        var clothes = await _db.Clothes.FirstOrDefaultAsync(c => c.Id == id && c.UserId == UserId);
+        if (clothes == null) return NotFound();
+        if (clothes.PhotoData == null) return NotFound();
+
+        return File(clothes.PhotoData, clothes.PhotoContentType ?? "image/jpeg");
     }
 }

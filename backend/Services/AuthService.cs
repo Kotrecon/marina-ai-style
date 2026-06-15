@@ -28,13 +28,16 @@ public class AuthService
         var user = new User
         {
             Username = request.Username,
-            PasswordHash = HashPassword(request.Password)
+            PasswordHash = HashPassword(request.Password),
+            City = request.City ?? "Санкт-Петербург",
+            Gender = request.Gender,
+            Age = request.Age
         };
 
         _db.Users.Add(user);
         await _db.SaveChangesAsync();
 
-        return new AuthResponse(GenerateToken(user), user.Username);
+        return new AuthResponse(GenerateToken(user), user.Username, user.City, user.Gender, user.Age);
     }
 
     public async Task<AuthResponse> Login(LoginRequest request)
@@ -45,7 +48,7 @@ public class AuthService
         if (!VerifyPassword(request.Password, user.PasswordHash))
             throw new UnauthorizedAccessException("Invalid credentials");
 
-        return new AuthResponse(GenerateToken(user), user.Username);
+        return new AuthResponse(GenerateToken(user), user.Username, user.City, user.Gender, user.Age);
     }
 
     private string HashPassword(string password)

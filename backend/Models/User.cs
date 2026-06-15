@@ -14,6 +14,15 @@ public class User
     [Column("password_hash")]
     public string PasswordHash { get; set; } = string.Empty;
 
+    [Column("city")]
+    public string? City { get; set; }
+
+    [Column("gender")]
+    public string? Gender { get; set; }
+
+    [Column("age")]
+    public int? Age { get; set; }
+
     [Column("created_at")]
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

@@ -19,7 +19,7 @@ if (File.Exists(envFile))
         var idx = trimmed.IndexOf('=');
         if (idx > 0)
         {
-            var key = trimmed[..idx].Trim();
+            var key = trimmed[..idx].Trim().Replace("__", ":");
             var val = trimmed[(idx + 1)..].Trim();
             builder.Configuration[key] = val;
         }
@@ -27,6 +27,8 @@ if (File.Exists(envFile))
 }
 
 builder.Services.AddControllers();
+builder.Services.Configure<IISServerOptions>(o => o.MaxRequestBodySize = 10 * 1024 * 1024);
+builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = 10 * 1024 * 1024);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -60,7 +62,12 @@ app.UseExceptionHandler(error =>
         context.Response.StatusCode = 500;
         context.Response.ContentType = "application/json";
         var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
-        await context.Response.WriteAsJsonAsync(new { error = exception?.Message ?? "Внутренняя ошибка сервера" });
+        var message = exception switch
+        {
+            Microsoft.EntityFrameworkCore.DbUpdateException dbEx => dbEx.InnerException?.Message ?? dbEx.Message,
+            _ => exception?.Message ?? "Внутренняя ошибка сервера"
+        };
+        await context.Response.WriteAsJsonAsync(new { error = message });
     });
 });
 

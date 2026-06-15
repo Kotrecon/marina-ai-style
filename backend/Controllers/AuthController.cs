@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using MarinaAiStyle.Data;
 using MarinaAiStyle.Models;
 using MarinaAiStyle.Services;
 
@@ -9,8 +12,13 @@ namespace MarinaAiStyle.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly AuthService _auth;
+    private readonly AppDbContext _db;
 
-    public AuthController(AuthService auth) => _auth = auth;
+    public AuthController(AuthService auth, AppDbContext db)
+    {
+        _auth = auth;
+        _db = db;
+    }
 
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponse>> Register(RegisterRequest request)
@@ -39,4 +47,23 @@ public class AuthController : ControllerBase
             return Unauthorized(new { error = "Invalid credentials" });
         }
     }
+
+    [Authorize]
+    [HttpPut("profile")]
+    public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileRequest request)
+    {
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        var user = await _db.Users.FindAsync(userId);
+        if (user == null) return NotFound();
+
+        if (request.City != null) user.City = request.City;
+        if (request.Gender != null) user.Gender = request.Gender;
+        if (request.Age.HasValue) user.Age = request.Age;
+
+        await _db.SaveChangesAsync();
+
+        return Ok(new { city = user.City, gender = user.Gender, age = user.Age });
+    }
 }
+
+public record UpdateProfileRequest(string? City = null, string? Gender = null, int? Age = null);

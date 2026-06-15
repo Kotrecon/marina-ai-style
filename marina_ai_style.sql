@@ -2,6 +2,9 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
+    city VARCHAR(100) DEFAULT 'Санкт-Петербург',
+    gender VARCHAR(20),
+    age INTEGER,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -15,6 +18,8 @@ CREATE TABLE clothes (
     season VARCHAR(20) NOT NULL,
     style VARCHAR(30) NOT NULL,
     image_path VARCHAR(255),
+    photo_data BYTEA,
+    photo_content_type VARCHAR(50),
     wear_count INTEGER DEFAULT 0,
     created_at TIMESTAMP DEFAULT NOW()
 );
@@ -41,3 +46,16 @@ CREATE TABLE dress_codes (
 
 CREATE INDEX idx_clothes_user ON clothes(user_id);
 CREATE INDEX idx_outfits_user ON outfits(user_id);
+
+CREATE TABLE recommendations (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    season VARCHAR(20) NOT NULL,
+    city VARCHAR(100),
+    occasion VARCHAR(100),
+    advice TEXT NOT NULL,
+    items_snapshot TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX idx_recommendations_user ON recommendations(user_id);

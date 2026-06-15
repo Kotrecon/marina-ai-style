@@ -22,7 +22,7 @@ function renderOutfits(items) {
 }
 
 async function deleteOutfit(id) {
-    if (!confirm('Удалить outfit?')) return;
+    if (!confirm('Удалить образ?')) return;
     await api(`/outfit/${id}`, 'DELETE');
     loadOutfits();
 }

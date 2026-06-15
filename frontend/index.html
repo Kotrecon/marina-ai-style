@@ -19,6 +19,15 @@
     </header>
 
     <main id="app">
+        <div id="page-welcome" class="page">
+            <div class="welcome">
+                <h2>Добро пожаловать в Marina AI Style</h2>
+                <p>AI-ассистент для подбора одежды из вашего гардероба</p>
+                <p>Войдите или зарегистрируйтесь, чтобы начать</p>
+                <button onclick="showPage('auth')">Начать</button>
+            </div>
+        </div>
+
         <div id="page-auth" class="page hidden">
             <div class="auth-form">
                 <h2 id="auth-title">Вход</h2>
@@ -42,6 +51,7 @@
                     <option value="весна">Весна</option>
                     <option value="лето">Лето</option>
                     <option value="осень">Осень</option>
+                    <option value="межсезонное">Межсезонное</option>
                 </select>
             </div>
             <button id="add-clothes-btn">+ Добавить вещь</button>
@@ -64,13 +74,19 @@
                         <option value="весна">Весна</option>
                         <option value="лето">Лето</option>
                         <option value="осень">Осень</option>
+                        <option value="межсезонное">Межсезонное</option>
                     </select>
                     <select id="c-style">
+                        <option value="">Без стиля</option>
                         <option value="casual">Casual</option>
                         <option value="formal">Formal</option>
                         <option value="sport">Sport</option>
                         <option value="street">Street</option>
                     </select>
+                    <label class="file-label">
+                        📷 Фото (необязательно)
+                        <input type="file" id="c-photo" accept="image/*">
+                    </label>
                     <button id="c-submit">Добавить</button>
                     <button id="c-cancel">Отмена</button>
                 </div>
@@ -79,21 +95,37 @@
 
         <div id="page-outfits" class="page hidden">
             <h2>Образы</h2>
-            <button id="add-outfit-btn">+ Создать outfit</button>
+            <button id="add-outfit-btn">+ Создать образ</button>
             <div id="outfits-list" class="grid"></div>
         </div>
 
         <div id="page-recommend" class="page hidden">
             <h2>AI-рекомендация</h2>
-            <select id="rec-season">
-                <option value="зима">Зима</option>
-                <option value="весна">Весна</option>
-                <option value="лето">Лето</option>
-                <option value="осень">Осень</option>
-            </select>
-            <input type="text" id="rec-occasion" placeholder="Повод (необязательно)">
-            <button id="rec-submit">Получить рекомендацию</button>
+            <div class="weather-card" id="weather-card">
+                <input type="text" id="rec-city" placeholder="Введите город" value="Санкт-Петербург">
+                <button id="weather-btn">Показать погоду</button>
+                <div id="weather-info"></div>
+            </div>
+            <div class="recommend-form">
+                <select id="rec-season">
+                    <option value="зима">Зима</option>
+                    <option value="весна">Весна</option>
+                    <option value="лето">Лето</option>
+                    <option value="осень">Осень</option>
+                    <option value="межсезонное">Межсезонное</option>
+                </select>
+                <select id="rec-style">
+                    <option value="">Все стили</option>
+                    <option value="casual">Casual</option>
+                    <option value="formal">Formal</option>
+                    <option value="sport">Sport</option>
+                    <option value="street">Street</option>
+                </select>
+                <input type="text" id="rec-occasion" placeholder="Повод (необязательно)">
+                <button id="rec-submit">Получить рекомендацию</button>
+            </div>
             <div id="rec-result"></div>
+            <div id="rec-history"></div>
         </div>
 
         <div id="page-stats" class="page hidden">

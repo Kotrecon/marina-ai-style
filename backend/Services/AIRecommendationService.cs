@@ -19,13 +19,17 @@ public class AIRecommendationService
     public async Task<RecommendResult> GetRecommendationAsync(
         WeatherData weather,
         List<ClothesResponse> wardrobe,
-        string? occasion)
+        string? occasion,
+        string? gender = null,
+        int? age = null,
+        string? season = null,
+        string? style = null)
     {
-        var prompt = BuildPrompt(weather, wardrobe, occasion);
+        var prompt = BuildPrompt(weather, wardrobe, occasion, gender, age, season, style);
 
         var requestBody = new
         {
-            model = "openai/gpt-3.5-turbo",
+            model = "nex-agi/nex-n2-pro:free",
             messages = new[]
             {
                 new { role = "system", content = "Ты стилист-консультант. Подбираешь одежду из гардероба пользователя с учётом погоды и повода. Отвечай на русском. Формат: список вещей (название) и короткий совет." },
@@ -43,16 +47,29 @@ public class AIRecommendationService
                 "application/json")
         };
 
+        var apiKey = _config["OpenRouter:ApiKey"];
         request.Headers.Authorization = new AuthenticationHeaderValue(
-            "Bearer", _config["OpenRouter:ApiKey"]);
+            "Bearer", apiKey);
 
         var response = await _http.SendAsync(request);
-        var json = await response.Content.ReadFromJsonAsync<JsonElement>();
 
-        if (json.TryGetProperty("error", out _))
+        if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
+        {
+            var retryAfter = response.Headers.RetryAfter?.Delta?.Seconds ?? 30;
+            await Task.Delay(retryAfter * 1000);
+            response = await _http.SendAsync(request);
+        }
+
+        var responseStr = await response.Content.ReadAsStringAsync();
+        var json = JsonSerializer.Deserialize<JsonElement>(responseStr);
+
+        if (json.TryGetProperty("error", out var errorProp))
+        {
+            var errorMsg = errorProp.TryGetProperty("message", out var msg) ? msg.GetString() : "Неизвестная ошибка API";
             return new RecommendResult(
-                Advice: "Не удалось получить рекомендацию. Проверьте API-ключ.",
+                Advice: $"Ошибка AI: {errorMsg}",
                 RecommendedIds: []);
+        }
 
         var content = json
             .GetProperty("choices")[0]
@@ -65,25 +82,41 @@ public class AIRecommendationService
         return new RecommendResult(Advice: content, RecommendedIds: recommendedIds);
     }
 
-    private string BuildPrompt(WeatherData weather, List<ClothesResponse> wardrobe, string? occasion)
+    private string BuildPrompt(WeatherData weather, List<ClothesResponse> wardrobe, string? occasion, string? gender, int? age, string? season, string? style)
     {
         var sb = new StringBuilder();
 
         sb.AppendLine("=== ПОГОДА ===");
+        sb.AppendLine($"Город: {weather.CityName}");
         sb.AppendLine($"Температура: {weather.Temperature}°C (от {weather.TempMin} до {weather.TempMax})");
         sb.AppendLine($"Погода: {weather.Description}");
         sb.AppendLine($"Влажность: {weather.Humidity}%");
         sb.AppendLine($"Ветер: {weather.WindSpeed} м/с");
         sb.AppendLine($"Дождь: {weather.PrecipitationChance}%");
 
+        if (!string.IsNullOrEmpty(season))
+            sb.AppendLine($"\n=== СЕЗОН ===\n{season}");
+
+        if (!string.IsNullOrEmpty(style))
+            sb.AppendLine($"\n=== СТИЛЬ ===\n{style}");
+
         if (!string.IsNullOrEmpty(occasion))
             sb.AppendLine($"\n=== ПОВОД ===\n{occasion}");
+
+        if (!string.IsNullOrEmpty(gender) || age.HasValue)
+        {
+            sb.AppendLine("\n=== ПОЛЬЗОВАТЕЛЬ ===");
+            if (!string.IsNullOrEmpty(gender))
+                sb.AppendLine($"Пол: {gender}");
+            if (age.HasValue)
+                sb.AppendLine($"Возраст: {age} лет");
+        }
 
         sb.AppendLine("\n=== ГАРДЕРОБ ===");
         foreach (var item in wardrobe)
             sb.AppendLine($"[{item.Id}] {item.Name} | {item.Category} | {item.Color} | {item.Material} | {item.Season} | {item.Style}");
 
-        sb.AppendLine("\nПодбери подходящий outfit из моего гардероба. Укажи ID вещей в формате [ID] и дай совет.");
+        sb.AppendLine("\nПодбери подходящий образ из моего гардероба. Укажи ID вещей в формате [ID] и дай совет.");
 
         return sb.ToString();
     }
