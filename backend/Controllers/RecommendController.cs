@@ -63,7 +63,7 @@ public class RecommendController : ControllerBase
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
         var wardrobeQuery = _db.Clothes
-            .Where(c => c.UserId == userId && c.Season == request.Season);
+            .Where(c => c.UserId == userId && (c.Season == request.Season || c.Season == "межсезонное"));
 
         if (!string.IsNullOrEmpty(request.Style))
             wardrobeQuery = wardrobeQuery.Where(c => c.Style == request.Style);
