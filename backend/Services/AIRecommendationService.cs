@@ -32,7 +32,7 @@ public class AIRecommendationService
             model = "openai/gpt-3.5-turbo",
             messages = new[]
             {
-                new { role = "system", content = "Ты стилист. ПРАВИЛА: 1) Выбери ОБЯЗАТЕЛЬНО минимум 2 вещи — одну для верха, одну для низа. 2) Формат ответа: каждая вещь на новой строке в формате: [ID] Название — совет. 3) Не пиши что в гардеробе не хватает вещей — работай только с тем что есть. 4) В конце дай короткий совет по образу." },
+                new { role = "system", content = "Стилист. Подбери минимум 2 вещи: верх + низ. Формат: [ID] Название — совет. Не пиши про отсутствующие вещи." },
                 new { role = "user", content = prompt }
             },
             temperature = 0.7,
@@ -41,8 +41,6 @@ public class AIRecommendationService
 
         var requestBodyJson = JsonSerializer.Serialize(requestBody);
         var apiKey = _config["OpenRouter:ApiKey"];
-
-        Console.WriteLine($"[AI-PROMPT]\n{prompt}\n[/AI-PROMPT]");
 
         HttpRequestMessage CreateRequest() =>
             new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions")
@@ -86,37 +84,15 @@ public class AIRecommendationService
     {
         var sb = new StringBuilder();
 
-        sb.AppendLine("=== ПОГОДА ===");
-        sb.AppendLine($"Город: {weather.CityName}");
-        sb.AppendLine($"Температура: {weather.Temperature}°C (от {weather.TempMin} до {weather.TempMax})");
-        sb.AppendLine($"Погода: {weather.Description}");
-        sb.AppendLine($"Влажность: {weather.Humidity}%");
-        sb.AppendLine($"Ветер: {weather.WindSpeed} м/с");
-        sb.AppendLine($"Дождь: {weather.PrecipitationChance}%");
+        sb.AppendLine($"\nПогода: {weather.CityName}, {weather.Temperature}°C, {weather.Description}, {weather.PrecipitationChance}% дождь");
+        sb.AppendLine($"Сезон: {season}, Стиль: {style}, Повод: {occasion}");
+        sb.AppendLine($"Пол: {gender}, Возраст: {age}");
 
-        if (!string.IsNullOrEmpty(season))
-            sb.AppendLine($"\n=== СЕЗОН ===\n{season}");
-
-        if (!string.IsNullOrEmpty(style))
-            sb.AppendLine($"\n=== СТИЛЬ ===\n{style}");
-
-        if (!string.IsNullOrEmpty(occasion))
-            sb.AppendLine($"\n=== ПОВОД ===\n{occasion}");
-
-        if (!string.IsNullOrEmpty(gender) || age.HasValue)
-        {
-            sb.AppendLine("\n=== ПОЛЬЗОВАТЕЛЬ ===");
-            if (!string.IsNullOrEmpty(gender))
-                sb.AppendLine($"Пол: {gender}");
-            if (age.HasValue)
-                sb.AppendLine($"Возраст: {age} лет");
-        }
-
-        sb.AppendLine("\n=== ГАРДЕРОБ ===");
+        sb.AppendLine("\nГардероб:");
         foreach (var item in wardrobe)
-            sb.AppendLine($"[{item.Id}] {item.Name} | {item.Category} | {item.Color} | {item.Material} | {item.Season} | {item.Style}");
+            sb.AppendLine($"[{item.Id}] {item.Name} ({item.Category}, {item.Color}, {item.Season})");
 
-        sb.AppendLine("\nВАЖНО: Подбери полный образ. МИНИМУМ 2 вещи — одна для верха (рубашка/поло/футболка), одна для низа (джинсы/брюки/юбка). Формат: [ID] Название — совет. Не пиши про отсутствующие вещи.");
+        sb.AppendLine("\nВерх + низ. Формат: [ID] Название — совет.");
 
         return sb.ToString();
     }
