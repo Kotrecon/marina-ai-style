@@ -1,2 +1,0 @@
-ALTER TABLE clothes ADD COLUMN IF NOT EXISTS photo_data BYTEA;
-ALTER TABLE clothes ADD COLUMN IF NOT EXISTS photo_content_type VARCHAR(50);

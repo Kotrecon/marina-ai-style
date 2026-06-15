@@ -1,1 +1,0 @@
-ALTER TABLE recommendations ADD COLUMN IF NOT EXISTS city VARCHAR(100);
