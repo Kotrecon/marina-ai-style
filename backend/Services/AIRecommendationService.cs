@@ -39,25 +39,23 @@ public class AIRecommendationService
             max_tokens = 500
         };
 
-        var request = new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions")
-        {
-            Content = new StringContent(
-                JsonSerializer.Serialize(requestBody),
-                Encoding.UTF8,
-                "application/json")
-        };
-
+        var requestBodyJson = JsonSerializer.Serialize(requestBody);
         var apiKey = _config["OpenRouter:ApiKey"];
-        request.Headers.Authorization = new AuthenticationHeaderValue(
-            "Bearer", apiKey);
 
-        var response = await _http.SendAsync(request);
+        HttpRequestMessage CreateRequest() =>
+            new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions")
+            {
+                Content = new StringContent(requestBodyJson, Encoding.UTF8, "application/json"),
+                Headers = { Authorization = new AuthenticationHeaderValue("Bearer", apiKey) }
+            };
+
+        var response = await _http.SendAsync(CreateRequest());
 
         if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests)
         {
             var retryAfter = response.Headers.RetryAfter?.Delta?.Seconds ?? 30;
             await Task.Delay(retryAfter * 1000);
-            response = await _http.SendAsync(request);
+            response = await _http.SendAsync(CreateRequest());
         }
 
         var responseStr = await response.Content.ReadAsStringAsync();
