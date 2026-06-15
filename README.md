@@ -46,7 +46,7 @@ AI-powered wardrobe assistant — upload your clothes with photos, get personali
 ```bash
 # 1. Create database
 psql -U postgres -c "CREATE DATABASE marina_ai_style;"
-psql -U postgres -d marina_ai_style -f marina_ai_style.sql
+psql -U postgres -d marina_ai_style -f migrations/000_initial.sql
 
 # 2. Configure environment
 cp .env.example .env

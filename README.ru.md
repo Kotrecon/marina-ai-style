@@ -46,7 +46,7 @@ AI-ассистент гардероба — загружай одежду с ф
 ```bash
 # 1. Создать базу данных
 psql -U postgres -c "CREATE DATABASE marina_ai_style;"
-psql -U postgres -d marina_ai_style -f marina_ai_style.sql
+psql -U postgres -d marina_ai_style -f migrations/000_initial.sql
 
 # 2. Настроить окружение
 cp .env.example .env
