@@ -27,7 +27,6 @@ if (File.Exists(envFile))
 }
 
 builder.Services.AddControllers();
-builder.Services.Configure<IISServerOptions>(o => o.MaxRequestBodySize = 10 * 1024 * 1024);
 builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = 10 * 1024 * 1024);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
