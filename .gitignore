@@ -9,3 +9,7 @@ obj/
 *.exe
 *.pdb
 node_modules/
+AI_MODELS.md
+experiment_*.py
+experiment_report.md
+1.md
