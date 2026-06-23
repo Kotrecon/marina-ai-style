@@ -14,7 +14,10 @@
 
 ```bash
 ui-kit/
+├── README.md                    # Этот файл (русский)
+├── README.ru.md                 # Английская версия
 ├── style.css                    # Точка входа
+├── design-system.html           # Интерактивная витрина
 ├── css/
 │   ├── colors.css               # OKLCH примитивы + семантические токены
 │   ├── fonts.css                # @font-face (локальные woff2)

@@ -14,7 +14,10 @@ Modular design system for Marina AI Style — OKLCH tokens, semantic layers, dar
 
 ```bash
 ui-kit/
+├── README.md                    # This file (English)
+├── README.ru.md                 # Russian version
 ├── style.css                    # Entry point
+├── design-system.html           # Interactive vitrina
 ├── css/
 │   ├── colors.css               # OKLCH primitives + semantic tokens
 │   ├── fonts.css                # @font-face (local woff2)
@@ -101,25 +104,25 @@ Three layers with clear separation:
 
 ### Sections
 
-| Section | Token Category | Components |
-|---------|---------------|------------|
-| Colors | Primitives + Semantic | Swatches, color pickers |
-| Typography | Fonts + Sizes | Type scale, font weights |
-| Spacing | Scale + Component | Spacing bars, radius boxes |
-| Shadows | Shadow + Elevation | Shadow cards |
-| Motion | Duration + Easing | Hover demos, blur |
-| Icons | Emoji icons | Icon grid |
-| Buttons | Button tokens | Primary, secondary, ghost, danger, success |
-| Inputs | Input + Toggle tokens | Text fields, toggles |
-| Cards | Card tokens | Content cards with badges |
-| Badges | Feedback tokens | Status badges |
-| Alerts | Feedback tokens | System alerts |
-| Toggles | Form tokens | On/Off switches |
-| Tables | Data tokens | Data tables |
-| Modal | Overlay tokens | Modal dialog |
-| Links | Link tokens | Link states |
-| Focus | Accessibility | Focus ring demo |
-| Charts | Chart tokens | Chart color palette |
+| Section    | Token Category        | Components                                 |
+| ---------- | --------------------- | ------------------------------------------ |
+| Colors     | Primitives + Semantic | Swatches, color pickers                    |
+| Typography | Fonts + Sizes         | Type scale, font weights                   |
+| Spacing    | Scale + Component     | Spacing bars, radius boxes                 |
+| Shadows    | Shadow + Elevation    | Shadow cards                               |
+| Motion     | Duration + Easing     | Hover demos, blur                          |
+| Icons      | Emoji icons           | Icon grid                                  |
+| Buttons    | Button tokens         | Primary, secondary, ghost, danger, success |
+| Inputs     | Input + Toggle tokens | Text fields, toggles                       |
+| Cards      | Card tokens           | Content cards with badges                  |
+| Badges     | Feedback tokens       | Status badges                              |
+| Alerts     | Feedback tokens       | System alerts                              |
+| Toggles    | Form tokens           | On/Off switches                            |
+| Tables     | Data tokens           | Data tables                                |
+| Modal      | Overlay tokens        | Modal dialog                               |
+| Links      | Link tokens           | Link states                                |
+| Focus      | Accessibility         | Focus ring demo                            |
+| Charts     | Chart tokens          | Chart color palette                        |
 
 ### Navigation
 
@@ -134,9 +137,9 @@ Sidebar with anchor links to each section. Active state tracked via JavaScript (
 ### CSS Imports
 
 ```html
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="preview.css">
-<link rel="stylesheet" href="css/theme-toggle.css">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="preview.css" />
+<link rel="stylesheet" href="css/theme-toggle.css" />
 ```
 
 | File                          | Size   | Purpose                            |
