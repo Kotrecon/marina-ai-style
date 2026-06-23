@@ -1,0 +1,41 @@
+/* ============================================
+   MOTION TOKENS — Marina AI Style
+   Duration, easing, transitions, blur
+   ============================================ */
+:root {
+    /* Duration */
+    --duration-fast: 0.15s;
+    --duration-normal: 0.2s;
+    --duration-slow: 0.3s;
+    --duration-slower: 0.4s;
+
+    /* Easing */
+    --ease-default: ease;
+    --ease-in: ease-in;
+    --ease-out: ease-out;
+    --ease-in-out: ease-in-out;
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Backdrop blur */
+    --backdrop-blur-sm: blur(4px);
+    --backdrop-blur-md: blur(16px);
+    --backdrop-blur-lg: blur(24px);
+
+    /* Transition composites */
+    --transition-colors: color var(--duration-normal) var(--ease-default),
+                          background-color var(--duration-normal) var(--ease-default),
+                          border-color var(--duration-normal) var(--ease-default);
+    --transition-transform: transform var(--duration-normal) var(--ease-default);
+    --transition-shadow: box-shadow var(--duration-normal) var(--ease-default);
+    --transition-all: all var(--duration-normal) var(--ease-default);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

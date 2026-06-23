@@ -1,0 +1,36 @@
+/* ============================================
+   OVERLAYS — Marina AI Style
+   Tokens + Styles
+   ============================================ */
+
+/* Tokens */
+:root {
+    --modal-content-radius: var(--radius-xl);
+
+    --modal-bg: var(--bg-overlay);
+    --modal-content-bg: var(--bg-surface);
+    --modal-content-border: var(--border-default);
+}
+
+/* Styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--modal-bg);
+    backdrop-filter: var(--backdrop-blur-sm);
+    z-index: var(--z-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--modal-content-bg);
+    border: 1px solid var(--modal-content-border);
+    border-radius: var(--modal-content-radius);
+    padding: var(--size-modal-padding);
+    max-width: var(--size-modal-max-w);
+    width: var(--size-modal-width);
+    box-shadow: var(--shadow-2xl);
+    z-index: var(--z-modal);
+}

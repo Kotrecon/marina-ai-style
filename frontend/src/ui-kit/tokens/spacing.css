@@ -1,0 +1,57 @@
+/* ============================================
+   SPACING TOKENS — Marina AI Style
+   ============================================ */
+:root {
+    /* Scale */
+    --space-0: 0;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    /* Badge */
+    --space-badge-px: 12px;
+    --space-badge-py: 4px;
+
+    /* Alert */
+    --space-alert-px: 20px;
+    --space-alert-py: 14px;
+    --space-alert-gap: 8px;
+
+    /* Input */
+    --space-input-px: 16px;
+    --space-input-py: 12px;
+
+    /* Modal */
+    --space-modal-padding: 2rem;
+
+    /* Card */
+    --space-card-padding: 1.25rem;
+
+    /* Sidebar */
+    --space-sidebar-padding: 2rem 0;
+
+    /* Swatch (design system) */
+    --space-swatch-info-px: 8px;
+    --space-swatch-info-py: 6px;
+
+    /* Icon cell (design system) */
+    --space-icon-cell-padding: 12px 8px;
+
+    /* Toast */
+    --space-toast-px: 20px;
+    --space-toast-py: 14px;
+    --space-toast-gap: 10px;
+
+    /* Button */
+    --space-btn-sm-px: 14px;
+    --space-btn-sm-py: 6px;
+    --space-btn-lg-px: 28px;
+    --space-btn-lg-py: 14px;
+}

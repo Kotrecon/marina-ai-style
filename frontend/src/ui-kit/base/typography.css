@@ -1,0 +1,22 @@
+/* ============================================
+   TYPOGRAPHY — Marina AI Style
+   ============================================ */
+
+/* Font families */
+.font-body { font-family: var(--font-body); }
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Font sizes */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-muted { color: var(--text-muted); }
+
+/* Preview font sizes */
+:root {
+    --font-size-section-icon: 0.9rem;
+    --font-size-icon-cell: 1.5rem;
+    --font-size-toast: 14px;
+}

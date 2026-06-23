@@ -1,0 +1,12 @@
+/* ============================================
+   LAYER / Z-INDEX TOKENS — Marina AI Style
+   ============================================ */
+:root {
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-sidebar: 30;
+    --z-overlay: 100;
+    --z-modal: 200;
+    --z-toast: 300;
+}

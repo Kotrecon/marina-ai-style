@@ -1,0 +1,209 @@
+/* ============================================
+   PREVIEW — Marina AI Style (design system)
+   ============================================ */
+
+/* Sections */
+.section {
+  margin-bottom: var(--space-16);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.section-icon {
+  width: var(--size-section-icon);
+  height: var(--size-section-icon);
+  background: var(--brand-bg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-section-icon);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+  font-size: 0.9rem;
+}
+
+.subsection {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-4);
+}
+
+/* Preview wrapper */
+.preview {
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  margin-bottom: var(--space-6);
+}
+
+.preview-head {
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg-app);
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.preview-body {
+  padding: var(--space-5);
+}
+
+/* Flex wrapper для скруглений */
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* Swatch */
+.swatch-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--space-2);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform var(--duration-normal) var(--ease-default),
+    box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.swatch:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.swatch .color {
+  height: var(--size-swatch-color-h);
+}
+
+.swatch .info {
+  flex: 1;
+  padding: var(--space-swatch-info-py) var(--space-swatch-info-px);
+  background: var(--bg-elevated);
+}
+
+.swatch .info .num {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.swatch .info .hex {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Type row */
+.type-row {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-3) 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+}
+
+.type-row:last-child {
+  border-bottom: none;
+}
+
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.type-spec {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Spacing */
+.spacing-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.spacing-row:last-child {
+  border-bottom: none;
+}
+
+.spacing-bar {
+  background: var(--gradient-brand);
+  border-radius: var(--radius-sm);
+  height: var(--space-4);
+  min-width: var(--space-4);
+}
+
+/* Radius box */
+.radius-box {
+  width: var(--size-swatch-color-h);
+  height: var(--size-swatch-color-h);
+  background: var(--brand-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon grid */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--space-2);
+}
+
+.icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-icon-cell-padding);
+  border-radius: var(--radius-lg);
+  transition: background var(--duration-normal) var(--ease-default);
+  cursor: pointer;
+}
+
+.icon-cell:hover {
+  background: var(--bg-elevated);
+}
+
+.icon-cell .em {
+  font-size: var(--font-size-icon-cell);
+  margin-bottom: var(--space-1);
+}
+
+.icon-cell span {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}

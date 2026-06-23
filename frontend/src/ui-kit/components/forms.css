@@ -1,0 +1,85 @@
+/* ============================================
+   FORMS — Marina AI Style
+   Tokens + Styles
+   ============================================ */
+
+/* Tokens */
+:root {
+    --input-radius: var(--radius-lg);
+    --input-bg: var(--bg-elevated);
+    --input-text: var(--text-primary);
+    --input-placeholder: var(--text-muted);
+    --input-border: var(--border-strong);
+    --input-border-focus: var(--border-focus);
+    --input-border-error: var(--border-error);
+
+    --toggle-bg: var(--border-strong);
+    --toggle-knob: var(--text-on-brand);
+}
+
+html[data-theme="light"] {
+    --toggle-bg: var(--color-neutral-300);
+}
+
+/* Input */
+.input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    padding: var(--space-input-py) var(--space-input-px);
+    border-radius: var(--input-radius);
+    color: var(--input-text);
+    font-size: 0.875rem;
+    outline: none;
+    font-family: var(--font-body);
+    transition: border-color var(--duration-normal) var(--ease-default),
+                box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.input:focus {
+    border-color: var(--input-border-focus);
+    box-shadow: var(--focus-ring);
+}
+
+.input::placeholder { color: var(--input-placeholder); }
+.input.error { border-color: var(--input-border-error); }
+
+.label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-1);
+}
+
+.hint { font-size: 0.75rem; color: var(--text-muted); margin-top: var(--space-1); }
+.err { font-size: 0.75rem; color: var(--error-text); margin-top: var(--space-1); }
+
+/* Toggle */
+.toggle {
+    width: var(--size-toggle-w);
+    height: var(--size-toggle-h);
+    background: var(--toggle-bg);
+    border-radius: var(--radius-full);
+    position: relative;
+    cursor: pointer;
+    transition: background var(--duration-normal) var(--ease-default);
+    flex-shrink: 0;
+}
+
+.toggle.on { background: var(--action-primary); }
+
+.toggle::after {
+    content: '';
+    position: absolute;
+    width: var(--size-toggle-knob);
+    height: var(--size-toggle-knob);
+    background: var(--toggle-knob);
+    border-radius: 50%;
+    top: var(--size-toggle-offset);
+    left: var(--size-toggle-offset);
+    transition: transform var(--duration-normal) var(--ease-default);
+}
+
+.toggle.on::after { transform: translateX(var(--size-toggle-knob)); }

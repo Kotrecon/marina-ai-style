@@ -1,0 +1,32 @@
+/* ============================================
+   Marina AI Style — Main Stylesheet
+   ============================================ */
+
+/* Tokens */
+@import url("css/colors.css");
+@import url("css/fonts.css");
+@import url("tokens/spacing.css");
+@import url("tokens/radius.css");
+@import url("tokens/shadows.css");
+@import url("tokens/layers.css");
+@import url("tokens/sizes.css");
+@import url("tokens/motion.css");
+
+/* Base */
+@import url("base/reset.css");
+@import url("base/typography.css");
+
+/* Layout */
+@import url("layout.css");
+
+/* Components */
+@import url("components/feedback.css");
+@import url("components/buttons.css");
+@import url("components/forms.css");
+@import url("components/data.css");
+@import url("components/chart-tokens.css");
+@import url("components/overlays.css");
+
+/* Utilities & Responsive */
+@import url("utilities.css");
+@import url("responsive.css");

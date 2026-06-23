@@ -1,0 +1,211 @@
+/* ============================================
+   LAYOUT — Marina AI Style
+   ============================================ */
+
+/* Tokens */
+:root {
+  --sidebar-bg: var(--bg-surface);
+  --sidebar-border: var(--border-default);
+  --sidebar-nav-text: var(--text-secondary);
+  --sidebar-nav-text-active: var(--color-brand-500);
+  --sidebar-nav-bg-active: var(--surface-nav-active);
+  --topbar-bg: var(--surface-topbar);
+
+  --button-cta-bg: var(--surface-cta);
+  --button-cta-hover-bg: var(--surface-cta-hover);
+}
+
+html[data-theme="light"] {
+  --sidebar-nav-bg-active: var(--surface-nav-active);
+  --topbar-bg: var(--surface-topbar);
+  --button-cta-bg: var(--surface-cta);
+  --button-cta-hover-bg: var(--surface-cta-hover);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --sidebar-nav-bg-active: var(--surface-nav-active);
+    --topbar-bg: var(--surface-topbar);
+    --button-cta-bg: var(--surface-cta);
+    --button-cta-hover-bg: var(--surface-cta-hover);
+  }
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--size-sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  padding: var(--space-sidebar-padding);
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-logo {
+  padding: 0 var(--space-6);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sidebar-logo .icon {
+  width: var(--size-sidebar-logo);
+  height: var(--size-sidebar-logo);
+  background: var(--gradient-brand-accent);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.sidebar-logo h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.sidebar-logo h1 span {
+  color: var(--brand-text);
+}
+.sidebar-logo small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.nav-section {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0 var(--space-6);
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.nav-link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-6);
+  color: var(--sidebar-nav-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  transition:
+    background var(--duration-normal) var(--ease-default),
+    color var(--duration-normal) var(--ease-default);
+}
+
+.nav-link:link,
+.nav-link:visited {
+  color: var(--sidebar-nav-text);
+}
+
+.nav-link.active:link,
+.nav-link.active:visited {
+  color: var(--sidebar-nav-text-active);
+}
+
+.nav-link::before {
+  content: none;
+}
+
+.nav-link:hover {
+  background: var(--sidebar-nav-bg-active);
+  color: var(--sidebar-nav-text-active);
+}
+.nav-link.active {
+  background: var(--sidebar-nav-bg-active);
+  color: var(--sidebar-nav-text-active);
+  font-weight: 600;
+}
+
+.sidebar-cta {
+  margin: var(--space-6);
+  padding: var(--space-3);
+  background: var(--gradient-brand-accent);
+  border-radius: var(--radius-xl);
+  color: var(--text-on-brand);
+}
+
+.sidebar-cta p:first-child {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.sidebar-cta p:last-of-type {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: var(--space-1);
+}
+
+.sidebar-cta button {
+  margin-top: var(--space-3);
+  width: 100%;
+  background: var(--button-cta-bg);
+  border: none;
+  color: var(--text-on-brand);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-default);
+}
+
+.sidebar-cta button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2); /* 8px отступ между иконкой и текстом */
+}
+
+.sidebar-cta button:hover {
+  background: var(--button-cta-hover-bg);
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--topbar-bg);
+  backdrop-filter: var(--backdrop-blur-md);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-4) var(--space-10);
+}
+
+.topbar h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.topbar small {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}

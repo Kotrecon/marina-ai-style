@@ -1,0 +1,106 @@
+/* ============================================
+   FEEDBACK — Marina AI Style
+   Tokens + Styles (badge, alert, toast, progress)
+   ============================================ */
+
+/* Tokens */
+:root {
+    --badge-radius: var(--radius-full);
+    --alert-radius: var(--radius-lg);
+    --toast-radius: var(--radius-lg);
+
+    --success-bg: oklch(0.72 0.19 145 / 0.1);
+    --success-text: var(--color-success);
+    --success-border: oklch(0.72 0.19 145 / 0.3);
+
+    --warning-bg: oklch(0.82 0.17 70 / 0.1);
+    --warning-text: var(--color-warning);
+    --warning-border: oklch(0.82 0.17 70 / 0.3);
+
+    --error-bg: oklch(0.63 0.22 25 / 0.1);
+    --error-text: var(--color-error);
+    --error-border: oklch(0.63 0.22 25 / 0.3);
+
+    --info-bg: oklch(0.65 0.15 240 / 0.1);
+    --info-text: var(--color-info);
+    --info-border: oklch(0.65 0.15 240 / 0.3);
+
+    --purple-bg: oklch(0.55 0.18 300 / 0.1);
+    --purple-text: var(--color-purple);
+    --purple-border: oklch(0.55 0.18 300 / 0.3);
+
+    --brand-bg: oklch(0.59 0.19 15 / 0.1);
+    --brand-text: var(--color-brand-500);
+    --brand-border: oklch(0.59 0.19 15 / 0.3);
+
+    --toast-bg: var(--bg-surface);
+    --toast-text: var(--text-primary);
+    --toast-shadow: var(--shadow-xl);
+}
+
+html[data-theme="light"] {
+    --success-text: oklch(0.40 0.15 145);
+    --warning-text: oklch(0.50 0.15 70);
+    --error-text: oklch(0.45 0.18 25);
+    --info-text: oklch(0.45 0.12 240);
+    --purple-text: oklch(0.45 0.15 300);
+}
+
+/* Badge */
+.badge {
+    padding: var(--space-badge-py) var(--space-badge-px);
+    border-radius: var(--badge-radius);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-brand { background: var(--brand-bg); color: var(--brand-text); border: 1px solid var(--brand-border); }
+.badge-success { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
+.badge-warning { background: var(--warning-bg); color: var(--warning-text); border: 1px solid var(--warning-border); }
+.badge-error { background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border); }
+.badge-info { background: var(--info-bg); color: var(--info-text); border: 1px solid var(--info-border); }
+.badge-purple { background: var(--purple-bg); color: var(--purple-text); border: 1px solid var(--purple-border); }
+
+/* Alert */
+.alert {
+    padding: var(--space-alert-py) var(--space-alert-px);
+    border-radius: var(--alert-radius);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-alert-gap);
+    margin-bottom: var(--space-3);
+}
+
+.alert-info { background: var(--info-bg); border: 1px solid var(--info-border); color: var(--info-text); }
+.alert-success { background: var(--success-bg); border: 1px solid var(--success-border); color: var(--success-text); }
+.alert-warning { background: var(--warning-bg); border: 1px solid var(--warning-border); color: var(--warning-text); }
+.alert-error { background: var(--error-bg); border: 1px solid var(--error-border); color: var(--error-text); }
+
+/* Toast */
+.toast {
+    background: var(--toast-bg);
+    color: var(--toast-text);
+    padding: var(--space-toast-py) var(--space-toast-px);
+    border-radius: var(--toast-radius);
+    font-size: var(--font-size-toast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-toast-gap);
+    box-shadow: var(--toast-shadow);
+}
+
+/* Progress */
+.progress-track {
+    height: var(--size-progress-h);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-brand);
+}

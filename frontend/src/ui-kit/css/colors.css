@@ -1,0 +1,236 @@
+/* ============================================
+   COLORS — Marina AI Style
+   OKLCH Design Tokens v2.0
+   ============================================ */
+
+/* ==========================================
+   1. PRIMITIVES
+   ========================================== */
+:root {
+  /* Font families */
+  --font-body: "Inter", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* Brand */
+  --color-brand-50: oklch(0.97 0.02 15);
+  --color-brand-100: oklch(0.93 0.035 15);
+  --color-brand-200: oklch(0.87 0.06 15);
+  --color-brand-300: oklch(0.78 0.1 15);
+  --color-brand-400: oklch(0.68 0.15 15);
+  --color-brand-500: oklch(0.59 0.19 15);
+  --color-brand-600: oklch(0.5 0.17 15);
+  --color-brand-700: oklch(0.43 0.14 15);
+  --color-brand-800: oklch(0.37 0.12 15);
+  --color-brand-900: oklch(0.32 0.1 15);
+  --color-brand-950: oklch(0.18 0.06 15);
+
+  /* Accent */
+  --color-accent-50: oklch(0.97 0.03 290);
+  --color-accent-100: oklch(0.93 0.05 290);
+  --color-accent-200: oklch(0.87 0.09 290);
+  --color-accent-300: oklch(0.78 0.13 290);
+  --color-accent-400: oklch(0.68 0.18 290);
+  --color-accent-500: oklch(0.55 0.22 290);
+  --color-accent-600: oklch(0.47 0.2 290);
+  --color-accent-700: oklch(0.32 0.12 290);
+  --color-accent-800: oklch(0.27 0.1 290);
+  --color-accent-900: oklch(0.23 0.08 290);
+  --color-accent-950: oklch(0.14 0.05 290);
+
+  /* Neutral */
+  --color-neutral-50: oklch(0.98 0.005 0);
+  --color-neutral-100: oklch(0.96 0.005 0);
+  --color-neutral-200: oklch(0.92 0.005 0);
+  --color-neutral-300: oklch(0.87 0.005 0);
+  --color-neutral-400: oklch(0.71 0.01 0);
+  --color-neutral-500: oklch(0.55 0.01 0);
+  --color-neutral-600: oklch(0.43 0.01 0);
+  --color-neutral-700: oklch(0.32 0.01 0);
+  --color-neutral-800: oklch(0.22 0.005 0);
+  --color-neutral-900: oklch(0.14 0.005 0);
+  --color-neutral-950: oklch(0.07 0.005 0);
+
+  /* Status */
+  --color-success: oklch(0.72 0.19 145);
+  --color-warning: oklch(0.82 0.17 70);
+  --color-error: oklch(0.63 0.22 25);
+  --color-info: oklch(0.65 0.15 240);
+  --color-purple: oklch(0.55 0.18 300);
+  --color-teal: oklch(0.72 0.14 165);
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--color-brand-500),
+    var(--color-brand-600)
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-accent-700),
+    var(--color-accent-600)
+  );
+  --gradient-brand-accent: linear-gradient(
+    135deg,
+    var(--color-brand-500),
+    var(--color-accent-700)
+  );
+}
+
+/* ==========================================
+   2. SEMANTIC DEFAULTS (dark)
+   ========================================== */
+:root {
+  /* Background */
+  --bg-app: var(--color-neutral-950);
+  --bg-page: var(--color-neutral-950);
+  --bg-surface: var(--color-neutral-900);
+  --bg-elevated: var(--color-neutral-800);
+  --bg-overlay: oklch(0 0 0 / 0.6);
+  --bg-scrim: oklch(0 0 0 / 0.4);
+
+  /* Text */
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-400);
+  --text-muted: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-700);
+  --text-on-brand: oklch(1 0 0);
+  --text-on-accent: oklch(1 0 0);
+  --text-on-success: oklch(1 0 0);
+  --text-on-error: oklch(1 0 0);
+  --text-on-warning: oklch(0.15 0 0);
+
+  /* Border */
+  --border-default: var(--color-neutral-700);
+  --border-subtle: var(--color-neutral-800);
+  --border-strong: var(--color-neutral-600);
+  --border-focus: var(--color-brand-500);
+  --border-error: var(--color-error);
+  --border-success: var(--color-success);
+
+  /* Action */
+  --action-primary: var(--color-brand-500);
+  --action-primary-hover: var(--color-brand-600);
+  --action-primary-active: var(--color-brand-700);
+  --action-primary-disabled: var(--color-neutral-700);
+  --action-secondary-bg: transparent;
+  --action-secondary-border: var(--color-neutral-600);
+  --action-secondary-text: var(--color-neutral-300);
+  --action-secondary-hover-border: var(--color-brand-500);
+  --action-secondary-hover-text: var(--color-brand-500);
+  --action-ghost-bg: oklch(0.59 0.19 15 / 0.1);
+  --action-ghost-text: var(--color-brand-500);
+  --action-ghost-hover-bg: oklch(0.59 0.19 15 / 0.2);
+
+  /* Overlay / Scrim */
+  --overlay-rgb: 0, 0, 0;
+  --scrim-rgb: 0, 0, 0;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px var(--bg-app), 0 0 0 4px var(--color-brand-500);
+
+  /* Surface states (layout) */
+  --surface-nav-active: oklch(0.59 0.19 15 / 0.12);
+  --surface-topbar: oklch(0.07 0.005 0 / 0.8);
+  --surface-cta: oklch(1 0 0 / 0.2);
+  --surface-cta-hover: oklch(1 0 0 / 0.3);
+
+  /* Link */
+  --link-default: var(--color-brand-500);
+  --link-hover: var(--color-brand-400);
+  --link-visited: var(--color-accent-600);
+  --link-disabled: var(--text-disabled);
+}
+
+/* ==========================================
+   3. LIGHT: data-theme="light"
+   ========================================== */
+html[data-theme="light"] {
+  --bg-app: var(--color-neutral-50);
+  --bg-page: var(--color-neutral-50);
+  --bg-surface: oklch(1 0 0);
+  --bg-elevated: var(--color-neutral-100);
+  --bg-overlay: oklch(0 0 0 / 0.5);
+  --bg-scrim: oklch(0 0 0 / 0.3);
+
+  --text-primary: var(--color-neutral-950);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-300);
+
+  --border-default: var(--color-neutral-200);
+  --border-subtle: var(--color-neutral-100);
+  --border-strong: var(--color-neutral-300);
+
+  --action-secondary-border: var(--color-neutral-300);
+  --action-secondary-text: var(--color-neutral-700);
+  --action-secondary-hover-border: var(--color-brand-600);
+  --action-secondary-hover-text: var(--color-brand-600);
+
+  /* Surface states (layout) */
+  --surface-nav-active: oklch(0.59 0.19 15 / 0.08);
+  --surface-topbar: oklch(1 0 0 / 0.8);
+  --surface-cta: oklch(0 0 0 / 0.1);
+  --surface-cta-hover: oklch(0 0 0 / 0.15);
+
+  --link-default: var(--color-brand-600);
+  --link-hover: var(--color-brand-700);
+}
+
+/* ==========================================
+   4. DARK: data-theme="dark" (явный)
+   ========================================== */
+html[data-theme="dark"] {
+  --bg-app: var(--color-neutral-950);
+  --bg-page: var(--color-neutral-950);
+  --bg-surface: var(--color-neutral-900);
+  --bg-elevated: var(--color-neutral-800);
+
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-400);
+  --text-muted: var(--color-neutral-500);
+
+  --border-default: var(--color-neutral-700);
+  --border-subtle: var(--color-neutral-800);
+  --border-strong: var(--color-neutral-600);
+
+  --action-secondary-border: var(--color-neutral-600);
+  --action-secondary-text: var(--color-neutral-300);
+
+  --link-default: var(--color-brand-500);
+  --link-hover: var(--color-brand-400);
+}
+
+/* ==========================================
+   5. AUTO: prefers-color-scheme (fallback)
+   ========================================== */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg-app: var(--color-neutral-50);
+    --bg-page: var(--color-neutral-50);
+    --bg-surface: oklch(1 0 0);
+    --bg-elevated: var(--color-neutral-100);
+
+    --text-primary: var(--color-neutral-950);
+    --text-secondary: var(--color-neutral-600);
+    --text-muted: var(--color-neutral-500);
+
+    --border-default: var(--color-neutral-200);
+    --border-subtle: var(--color-neutral-100);
+    --border-strong: var(--color-neutral-300);
+
+    --action-secondary-border: var(--color-neutral-300);
+    --action-secondary-text: var(--color-neutral-700);
+    --action-secondary-hover-border: var(--color-brand-600);
+    --action-secondary-hover-text: var(--color-brand-600);
+
+    /* Surface states (layout) */
+    --surface-nav-active: oklch(0.59 0.19 15 / 0.08);
+    --surface-topbar: oklch(1 0 0 / 0.8);
+    --surface-cta: oklch(0 0 0 / 0.1);
+    --surface-cta-hover: oklch(0 0 0 / 0.15);
+
+    --link-default: var(--color-brand-600);
+    --link-hover: var(--color-brand-700);
+  }
+}

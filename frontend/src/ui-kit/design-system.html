@@ -1,0 +1,1676 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marina AI Style — AI-powered wardrobe assistant"
+    />
+    <meta name="author" content="@Kotrecon" />
+    <meta name="version" content="1.0.0" />
+    <meta name="generator" content="Marina AI Style Design System" />
+    <title>Marina AI Style — Design System v1.0.0</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="preview.css" />
+    <link rel="stylesheet" href="css/theme-toggle.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <div class="icon">👗</div>
+          <div>
+            <h1>Marina AI Style</h1>
+            <small>Design System v1.0</small>
+          </div>
+        </div>
+
+        <div class="nav-section">Основы</div>
+
+        <a href="#colors" class="nav-link" data-icon="palette">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-palette"
+          >
+            <path
+              d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
+            ></path>
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+          </svg>
+          Цвета
+        </a>
+
+        <a href="#typography" class="nav-link" data-icon="type">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-type"
+          >
+            <path d="M12 4v16"></path>
+            <path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"></path>
+            <path d="M9 20h6"></path>
+          </svg>
+          Типографика
+        </a>
+
+        <a href="#spacing" class="nav-link" data-icon="ruler">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-ruler"
+          >
+            <path
+              d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"
+            ></path>
+            <path d="m14.5 12.5 2-2"></path>
+            <path d="m11.5 9.5 2-2"></path>
+            <path d="m8.5 6.5 2-2"></path>
+            <path d="m17.5 15.5 2-2"></path>
+          </svg>
+          Отступы
+        </a>
+
+        <a href="#border-radius" class="nav-link" data-icon="square">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-square"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+          </svg>
+          Скругления
+        </a>
+
+        <a href="#shadows" class="nav-link" data-icon="shadow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shadow"
+          >
+            <path
+              d="M12 2a10 10 0 0 0-10 10c0 5.523 4.477 10 10 10s10-4.477 10-10"
+            ></path>
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" opacity=".3"></path>
+          </svg>
+          Тени
+        </a>
+
+        <a href="#motion" class="nav-link" data-icon="zap">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-zap"
+          >
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Motion
+        </a>
+
+        <a href="#icons" class="nav-link" data-icon="icons">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-icons"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <circle cx="9" cy="9" r="2"></circle>
+            <circle cx="15" cy="15" r="2"></circle>
+          </svg>
+          Иконки
+        </a>
+
+        <div class="nav-section">Компоненты</div>
+
+        <a href="#buttons" class="nav-link" data-icon="mouse-pointer-click">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-mouse-pointer-click"
+          >
+            <path d="M14 4.1 12 6"></path>
+            <path d="m5.1 8-2.9-.8"></path>
+            <path d="m6 12-1.9 2"></path>
+            <path d="M7.2 2.2 8 5.1"></path>
+            <path
+              d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"
+            ></path>
+          </svg>
+          Кнопки
+        </a>
+
+        <a href="#inputs" class="nav-link" data-icon="text-cursor-input">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-text-cursor-input"
+          >
+            <path d="M12 20h-1a2 2 0 0 1-2-2 2 2 0 0 1-2 2H6"></path>
+            <path d="M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7"></path>
+            <path d="M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1"></path>
+            <path d="M6 4h1a2 2 0 0 1 2 2 2 2 0 0 1 2-2h1"></path>
+            <path d="M9 6v12"></path>
+          </svg>
+          Поля ввода
+        </a>
+
+        <a href="#cards" class="nav-link" data-icon="layout-grid">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-layout-grid"
+          >
+            <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+            <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+            <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+            <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+          </svg>
+          Карточки
+        </a>
+
+        <a href="#badges" class="nav-link" data-icon="tag">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-tag"
+          >
+            <path
+              d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+            ></path>
+            <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+          </svg>
+          Бейджи
+        </a>
+
+        <a href="#alerts" class="nav-link" data-icon="bell">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-bell"
+          >
+            <path d="M10.268 21a2 2 0 0 0 3.464 0"></path>
+            <path
+              d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+            ></path>
+          </svg>
+          Алерты
+        </a>
+
+        <a href="#toggles" class="nav-link" data-icon="toggle-right">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-toggle-right"
+          >
+            <circle cx="15" cy="12" r="3"></circle>
+            <rect width="20" height="14" x="2" y="5" rx="7"></rect>
+          </svg>
+          Переключатели
+        </a>
+
+        <a href="#tables" class="nav-link" data-icon="table">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-table"
+          >
+            <path d="M12 3v18"></path>
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <path d="M3 9h18"></path>
+            <path d="M3 15h18"></path>
+          </svg>
+          Таблицы
+        </a>
+
+        <a href="#modal" class="nav-link" data-icon="app-window">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-app-window"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="M10 4v4"></path>
+            <path d="M2 8h20"></path>
+            <path d="M6 4v4"></path>
+          </svg>
+          Модалка
+        </a>
+
+        <a href="#links" class="nav-link" data-icon="link">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-link"
+          >
+            <path
+              d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+            ></path>
+            <path
+              d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+            ></path>
+          </svg>
+          Ссылки
+        </a>
+
+        <a href="#focus" class="nav-link" data-icon="target">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-target"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+          </svg>
+          Focus
+        </a>
+
+        <a href="#charts" class="nav-link" data-icon="bar-chart-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-bar-chart-3"
+          >
+            <path d="M3 3v18h18"></path>
+            <path d="M18 17V9"></path>
+            <path d="M13 17V5"></path>
+            <path d="M8 17v-3"></path>
+          </svg>
+          Графики
+        </a>
+
+
+        <div class="sidebar-cta">
+        <p>Экспорт для AI Агентов</p>
+        <p>Сохранить в файл DESIGN.md</p>
+        <button id="exportDesignBtn">    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" x2="12" y1="15" y2="3"></line>
+    </svg>Скачать →</button>
+        </div>
+      </aside>
+      <div class="main">
+        <div
+          class="topbar"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="topbar-title"
+            style="display: flex; flex-direction: column; gap: 2px"
+          >
+            <h2>Marina AI Style — Design System</h2>
+            <small>Plus Jakarta Sans · Inter · Fira Code</small>
+          </div>
+          <button
+            id="theme-toggle"
+            aria-label="Переключить тему"
+            style="margin-left: auto; flex-shrink: 0"
+          >
+            <span class="icon">🌙</span>
+          </button>
+        </div>
+        <div class="content">
+          <!-- COLORS -->
+          <div class="section" id="colors">
+            <div class="section-header">
+              <div class="section-icon">🎨</div>
+              <h2 class="section-title">Цвета</h2>
+            </div>
+            <p class="section-desc">Primitive palette + Semantic tokens.</p>
+
+            <div class="subsection">Brand — Primitive</div>
+            <div class="swatch-row mb-lg">
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-50)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-50</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-100)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-100</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-200)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-200</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-300)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-300</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-400)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-400</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-500)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-500</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-600)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-600</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-700)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-700</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-800)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-800</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-900)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-900</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-brand-950)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-brand-950</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subsection">Accent — Primitive</div>
+            <div class="swatch-row mb-lg">
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-accent-700)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-accent-700</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-accent-600)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-accent-600</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--color-accent-500)"
+                ></div>
+                <div class="info">
+                  <div class="num">--color-accent-500</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subsection">Semantic — Background</div>
+            <div class="swatch-row mb-lg">
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="
+                    background: var(--bg-app);"
+                ></div>
+                <div class="info">
+                  <div class="num">--bg-app</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="color" style="background: var(--bg-surface)"></div>
+                <div class="info">
+                  <div class="num">--bg-surface</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="color" style="background: var(--bg-elevated)"></div>
+                <div class="info">
+                  <div class="num">--bg-elevated</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="color" style="background: var(--bg-overlay)"></div>
+                <div class="info">
+                  <div class="num">--bg-overlay</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subsection">Semantic — Text</div>
+            <div class="swatch-row mb-lg">
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--text-primary)"
+                ></div>
+                <div class="info">
+                  <div class="num">--text-primary</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="background: var(--text-secondary)"
+                ></div>
+                <div class="info">
+                  <div class="num">--text-secondary</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="color" style="background: var(--text-muted)"></div>
+                <div class="info">
+                  <div class="num">--text-muted</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div
+                  class="color"
+                  style="
+                    background: var(--text-on-brand);"
+                ></div>
+                <div class="info">
+                  <div class="num">--text-on-brand</div>
+                  <div class="hex">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subsection">Semantic — Border</div>
+            <div class="swatch-row mb-lg">
+            <div class="swatch">
+                <div class="color" style="background: var(--border-default); border: 1px solid var(--border-subtle);"></div>
+                <div class="info">
+                <div class="num">--border-default</div>
+                <div class="hex">—</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="color" style="background: var(--border-subtle); border: 1px solid var(--border-default);"></div>
+                <div class="info">
+                <div class="num">--border-subtle</div>
+                <div class="hex">—</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="color" style="background: var(--border-strong); border: 1px solid var(--border-default);"></div>
+                <div class="info">
+                <div class="num">--border-strong</div>
+                <div class="hex">—</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="color" style="background: var(--border-focus); border: 1px solid var(--border-default);"></div>
+                <div class="info">
+                <div class="num">--border-focus</div>
+                <div class="hex">—</div>
+                </div>
+            </div>
+            </div>
+
+          <!-- TYPOGRAPHY -->
+          <div class="section" id="typography">
+            <div class="section-header">
+              <div class="section-icon">🔤</div>
+              <h2 class="section-title">Типографика</h2>
+            </div>
+            <p class="section-desc">
+              Plus Jakarta Sans · Inter · Fira Code — все локально.
+            </p>
+            <div class="preview">
+              <div class="preview-body">
+                <div class="type-row">
+                  <span class="type-label">display</span>
+                  <span
+                    style="
+                      font-size: 3rem;
+                      font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
+                      font-weight: 800;
+                      letter-spacing: -1px;
+                    "
+                    >Display</span
+                  >
+                  <span class="type-spec">48px / 900</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">h1</span>
+                  <span
+                    style="
+                      font-size: 2.25rem;
+                      font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
+                      font-weight: 700;
+                    "
+                    >Heading 1</span
+                  >
+                  <span class="type-spec">36px / 700</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">h2</span>
+                  <span
+                    style="
+                      font-size: 1.875rem;
+                      font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
+                      font-weight: 700;
+                    "
+                    >Heading 2</span
+                  >
+                  <span class="type-spec">30px / 700</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">h3</span>
+                  <span
+                    style="
+                      font-size: 1.5rem;
+                      font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
+                      font-weight: 600;
+                    "
+                    >Heading 3</span
+                  >
+                  <span class="type-spec">24px / 600</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">h4</span>
+                  <span
+                    style="
+                      font-size: 1.25rem;
+                      font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
+                      font-weight: 600;
+                    "
+                    >Heading 4</span
+                  >
+                  <span class="type-spec">20px / 600</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">body</span>
+                  <span style="font-size: 0.875rem"
+                    >Body — основной текст.</span
+                  >
+                  <span class="type-spec">14px / 400</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">caption</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted)"
+                    >Caption — подписи</span
+                  >
+                  <span class="type-spec">12px / 400</span>
+                </div>
+                <div class="type-row">
+                  <span class="type-label">mono</span>
+                  <span class="font-mono" style="font-size: 0.875rem"
+                    >Fira Code — 248 tokens · 142ms</span
+                  >
+                  <span class="type-spec">14px / 400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SPACING -->
+          <div class="section" id="spacing">
+            <div class="section-header">
+              <div class="section-icon">📐</div>
+              <h2 class="section-title">Отступы</h2>
+            </div>
+            <p class="section-desc">Базовая единица — 4px.</p>
+            <div class="preview">
+              <div class="preview-body">
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >4px</span
+                  >
+                  <div class="spacing-bar" style="width: 4px"></div>
+                  <span class="text-xs text-muted">0.25rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >8px</span
+                  >
+                  <div class="spacing-bar" style="width: 8px"></div>
+                  <span class="text-xs text-muted">0.5rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >12px</span
+                  >
+                  <div class="spacing-bar" style="width: 12px"></div>
+                  <span class="text-xs text-muted">0.75rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >16px</span
+                  >
+                  <div class="spacing-bar" style="width: 16px"></div>
+                  <span class="text-xs text-muted">1rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >24px</span
+                  >
+                  <div class="spacing-bar" style="width: 24px"></div>
+                  <span class="text-xs text-muted">1.5rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >32px</span
+                  >
+                  <div class="spacing-bar" style="width: 32px"></div>
+                  <span class="text-xs text-muted">2rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >48px</span
+                  >
+                  <div class="spacing-bar" style="width: 48px"></div>
+                  <span class="text-xs text-muted">3rem</span>
+                </div>
+                <div class="spacing-row">
+                  <span class="font-mono text-xs text-muted" style="width: 50px"
+                    >64px</span
+                  >
+                  <div class="spacing-bar" style="width: 64px"></div>
+                  <span class="text-xs text-muted">4rem</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BORDER RADIUS -->
+          <div class="section" id="border-radius">
+            <div class="section-header">
+              <div class="section-icon">⬜</div>
+              <h2 class="section-title">Скругления</h2>
+            </div>
+            <p class="section-desc">Border radius для компонентов.</p>
+            <div class="preview">
+              <div class="preview-body">
+                <div class="flex-wrap">
+                  <div style="text-align: center">
+                    <div class="radius-box" style="border-radius: 4px"></div>
+                    <p class="font-mono text-xs text-muted mt-md">4px</p>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="radius-box" style="border-radius: 8px"></div>
+                    <p class="font-mono text-xs text-muted mt-md">8px</p>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="radius-box" style="border-radius: 12px"></div>
+                    <p class="font-mono text-xs text-muted mt-md">12px</p>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="radius-box" style="border-radius: 16px"></div>
+                    <p class="font-mono text-xs text-muted mt-md">16px</p>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="radius-box" style="border-radius: 50%"></div>
+                    <p class="font-mono text-xs text-muted mt-md">full</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ICONS -->
+          <div class="section" id="icons">
+            <div class="section-header">
+              <div class="section-icon">🎯</div>
+              <h2 class="section-title">Иконки</h2>
+            </div>
+            <p class="section-desc">Emoji для быстрого прототипирования.</p>
+            <div class="icon-grid">
+              <div class="icon-cell">
+                <div class="em">👔</div>
+                <span>Гардероб</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">🎨</div>
+                <span>Образы</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">✨</div>
+                <span>Рекомендация</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">📊</div>
+                <span>Статистика</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">👤</div>
+                <span>Профиль</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">⚙️</div>
+                <span>Настройки</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">📷</div>
+                <span>Фото</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em"></div>
+                <span>Погода</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">🤖</div>
+                <span>AI</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">🔍</div>
+                <span>Поиск</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">📝</div>
+                <span>Логи</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">💾</div>
+                <span>Бэкап</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">🔒</div>
+                <span>Безопасность</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">🔑</div>
+                <span>API ключи</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">📈</div>
+                <span>Метрики</span>
+              </div>
+              <div class="icon-cell">
+                <div class="em">⚡</div>
+                <span>Производит.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="section" id="buttons">
+            <div class="section-header">
+              <div class="section-icon">🔘</div>
+              <h2 class="section-title">Кнопки</h2>
+            </div>
+            <p class="section-desc">Типы, размеры, состояния.</p>
+            <div class="preview">
+              <div class="preview-head">Типы</div>
+              <div class="preview-body flex-wrap gap-md">
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-ghost">Ghost</button>
+                <button class="btn btn-danger">Danger</button>
+                <button class="btn btn-success">Success</button>
+              </div>
+            </div>
+            <div class="preview">
+              <div class="preview-head">Размеры</div>
+              <div
+                class="preview-body flex-wrap"
+                style="gap: 12px; align-items: center"
+              >
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary">Medium</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+              </div>
+            </div>
+            <div class="preview">
+              <div class="preview-head">С иконками</div>
+              <div class="preview-body flex-wrap gap-md">
+                <button class="btn btn-primary">✨ Создать</button>
+                <button class="btn btn-secondary">Экспорт</button>
+                <button class="btn btn-danger">🗑 Удалить</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- INPUTS -->
+          <div class="section" id="inputs">
+            <div class="section-header">
+              <div class="section-icon">📝</div>
+              <h2 class="section-title">Поля ввода</h2>
+            </div>
+            <p class="section-desc">Инпуты, селекты, тоглы.</p>
+            <div class="preview">
+              <div class="preview-head">Стандартные</div>
+              <div class="preview-body grid-2">
+                <div>
+                  <label class="label">Логин</label>
+                  <input class="input" placeholder="Введите логин" />
+                </div>
+                <div>
+                  <label class="label">Пароль</label>
+                  <input class="input" type="password" placeholder="••••••••" />
+                </div>
+                <div>
+                  <label class="label">С ошибкой</label>
+                  <input class="input error" value="Неверный формат" />
+                  <p class="err">Поле обязательно</p>
+                </div>
+                <div>
+                  <label class="label">С хинтом</label>
+                  <input class="input" placeholder="email@example.com" />
+                  <p class="hint">Мы не отправим спам</p>
+                </div>
+              </div>
+            </div>
+            <div class="preview">
+              <div class="preview-head">Тоглы</div>
+              <div class="preview-body flex-wrap gap-md">
+                <div class="flex-wrap gap-sm">
+                  <div class="toggle on"></div>
+                  <span class="text-sm text-muted">Включено</span>
+                </div>
+                <div class="flex-wrap gap-sm">
+                  <div class="toggle"></div>
+                  <span class="text-sm text-muted">Выключено</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARDS -->
+          <div class="section" id="cards">
+            <div class="section-header">
+              <div class="section-icon">🃏</div>
+              <h2 class="section-title">Карточки</h2>
+            </div>
+            <p class="section-desc">Паттерны карточек.</p>
+            <div class="grid-3">
+              <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 8px">👔</div>
+                <h3>Рубашка белая</h3>
+                <p>Верх · Белый · Лён</p>
+                <div class="flex-wrap gap-sm mt-md">
+                  <span class="badge badge-brand">Межсезонье</span>
+                  <span class="badge badge-info">8 раз</span>
+                </div>
+              </div>
+              <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 8px">✨</div>
+                <h3>AI Рекомендация</h3>
+                <p>При 18°C — рубашка с джинсами</p>
+                <button class="btn btn-primary text-xs mt-md">Подробнее</button>
+              </div>
+              <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 8px">📊</div>
+                <h3>Статистика</h3>
+                <p>24 вещи · 5 образов</p>
+                <div class="mt-md">
+                  <div
+                    class="flex-wrap mb-sm"
+                    style="justify-content: space-between"
+                  >
+                    <span class="text-xs text-muted">Гардероб</span>
+                    <span class="font-mono text-xs">78%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width: 78%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BADGES -->
+          <div class="section" id="badges">
+            <div class="section-header">
+              <div class="section-icon">🏷</div>
+              <h2 class="section-title">Бейджи</h2>
+            </div>
+            <p class="section-desc">Метки статусов.</p>
+            <div class="preview">
+              <div class="preview-body flex-wrap gap-sm">
+                <span class="badge badge-brand">Primary</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-purple">Purple</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ALERTS -->
+          <div class="section" id="alerts">
+            <div class="section-header">
+              <div class="section-icon">🔔</div>
+              <h2 class="section-title">Алерты</h2>
+            </div>
+            <p class="section-desc">Уведомления.</p>
+            <div class="alert alert-info">ℹ️ Информационное сообщение</div>
+            <div class="alert alert-success">✅ Операция выполнена</div>
+            <div class="alert alert-warning">️ Приближается лимит</div>
+            <div class="alert alert-error">❌ Ошибка загрузки</div>
+          </div>
+
+          <!-- TOGGLES -->
+          <div class="section" id="toggles">
+            <div class="section-header">
+              <div class="section-icon"></div>
+              <h2 class="section-title">Переключатели</h2>
+            </div>
+            <p class="section-desc">On/Off.</p>
+            <div class="preview">
+              <div class="preview-body flex-wrap gap-md">
+                <div class="flex-wrap gap-sm">
+                  <div class="toggle on"></div>
+                  <span class="text-sm text-muted">Уведомления</span>
+                </div>
+                <div class="flex-wrap gap-sm">
+                  <div class="toggle"></div>
+                  <span class="text-sm text-muted">Тёмная тема</span>
+                </div>
+                <div class="flex-wrap gap-sm">
+                  <div class="toggle on"></div>
+                  <span class="text-sm text-muted">2FA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABLES -->
+          <div class="section" id="tables">
+            <div class="section-header">
+              <div class="section-icon">📋</div>
+              <h2 class="section-title">Таблицы</h2>
+            </div>
+            <p class="section-desc">Табличные данные.</p>
+            <div class="preview" style="overflow-x: auto">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Модель</th>
+                    <th>Провайдер</th>
+                    <th>Запросов</th>
+                    <th>Latency</th>
+                    <th>Статус</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-weight: 600">nemotron-nano-12b</td>
+                    <td class="text-muted">OpenRouter</td>
+                    <td class="font-mono">612</td>
+                    <td class="font-mono">15с</td>
+                    <td><span class="badge badge-success">Активна</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 600">qwen3.5-flash</td>
+                    <td class="text-muted">RouterAI</td>
+                    <td class="font-mono">187</td>
+                    <td class="font-mono">28с</td>
+                    <td><span class="badge badge-success">Активна</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 600">gemma4:26b</td>
+                    <td class="text-muted">Ollama</td>
+                    <td class="font-mono">48</td>
+                    <td class="font-mono">108с</td>
+                    <td><span class="badge badge-warning">Ожидание</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SHADOWS -->
+          <div class="section" id="shadows">
+            <div class="section-header">
+              <div class="section-icon">🌑</div>
+              <h2 class="section-title">Тени</h2>
+            </div>
+            <p class="section-desc">Уровни теней для создания глубины.</p>
+            <div class="preview">
+              <div class="preview-body grid-3">
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-xs);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-xs</span>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-sm);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-sm</span>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-md);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-md</span>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-lg);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-lg</span>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-xl);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-xl</span>
+                </div>
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-lg);
+                    padding: 2rem;
+                    text-align: center;
+                    box-shadow: var(--shadow-2xl);
+                  "
+                >
+                  <span class="font-mono text-xs text-muted">shadow-2xl</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOTION -->
+          <div class="section" id="motion">
+            <div class="section-header">
+              <div class="section-icon">⚡</div>
+              <h2 class="section-title">Motion</h2>
+            </div>
+            <p class="section-desc">Duration, easing, transitions.</p>
+            <div class="preview">
+              <div class="preview-body grid-2">
+                <div>
+                  <div class="subsection">Duration</div>
+                  <div class="flex-wrap gap-sm mb-md">
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      fast (0.15s)
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      normal (0.2s)
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      slow (0.3s)
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      slower (0.4s)
+                    </div>
+                  </div>
+                  <div class="subsection">Easing</div>
+                  <div class="flex-wrap gap-sm">
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      ease
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      ease-in
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      ease-out
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 16px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        font-size: 0.8rem;
+                      "
+                    >
+                      bounce
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="subsection">Hover demo</div>
+                  <div style="display: flex; gap: 1rem">
+                    <div
+                      style="
+                        width: 80px;
+                        height: 80px;
+                        background: var(--brand-bg);
+                        border-radius: var(--radius-lg);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: transform var(--duration-normal)
+                          var(--ease-default);
+                        font-size: 1.5rem;
+                      "
+                      onmouseover="
+                        this.style.transform = 'translateY(-4px) scale(1.05)'
+                      "
+                      onmouseout="this.style.transform = 'none'"
+                    >
+                      👔
+                    </div>
+                    <div
+                      style="
+                        width: 80px;
+                        height: 80px;
+                        background: var(--brand-bg);
+                        border-radius: var(--radius-lg);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: transform var(--duration-slow)
+                          var(--ease-bounce);
+                        font-size: 1.5rem;
+                      "
+                      onmouseover="
+                        this.style.transform = 'translateY(-4px) scale(1.05)'
+                      "
+                      onmouseout="this.style.transform = 'none'"
+                    >
+                      ✨
+                    </div>
+                    <div
+                      style="
+                        width: 80px;
+                        height: 80px;
+                        background: var(--brand-bg);
+                        border-radius: var(--radius-lg);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: transform var(--duration-slower)
+                          var(--ease-in-out);
+                        font-size: 1.5rem;
+                      "
+                      onmouseover="
+                        this.style.transform = 'translateY(-4px) scale(1.05)'
+                      "
+                      onmouseout="this.style.transform = 'none'"
+                    >
+                      🤖
+                    </div>
+                  </div>
+                  <div class="subsection mt-md">Backdrop blur</div>
+                  <div style="display: flex; gap: 0.5rem">
+                    <div
+                      style="
+                        padding: 8px 12px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        backdrop-filter: var(--backdrop-blur-sm);
+                        font-size: 0.75rem;
+                      "
+                    >
+                      blur-sm
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 12px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        backdrop-filter: var(--backdrop-blur-md);
+                        font-size: 0.75rem;
+                      "
+                    >
+                      blur-md
+                    </div>
+                    <div
+                      style="
+                        padding: 8px 12px;
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-md);
+                        backdrop-filter: var(--backdrop-blur-lg);
+                        font-size: 0.75rem;
+                      "
+                    >
+                      blur-lg
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MODAL -->
+          <div class="section" id="modal">
+            <div class="section-header">
+              <div class="section-icon">🪟</div>
+              <h2 class="section-title">Модальное окно</h2>
+            </div>
+            <p class="section-desc">Overlay + контент модалки.</p>
+            <div class="preview">
+              <div class="preview-body">
+                <div
+                  style="
+                    background: var(--bg-elevated);
+                    border-radius: var(--radius-xl);
+                    padding: 2rem;
+                    max-width: 480px;
+                    border: 1px solid var(--border-default);
+                    box-shadow: var(--shadow-2xl);
+                  "
+                >
+                  <h3
+                    style="
+                      font-family: var(--font-display);
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    Подтверждение
+                  </h3>
+                  <p class="text-sm text-muted" style="margin-bottom: 1.5rem">
+                    Вы уверены, что хотите удалить эту вещь из гардероба?
+                  </p>
+                  <div
+                    class="flex-wrap"
+                    style="justify-content: flex-end; gap: 0.5rem"
+                  >
+                    <button class="btn btn-secondary">Отмена</button>
+                    <button class="btn btn-danger">Удалить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LINKS -->
+          <div class="section" id="links">
+            <div class="section-header">
+              <div class="section-icon"></div>
+              <h2 class="section-title">Ссылки</h2>
+            </div>
+            <p class="section-desc">
+              Состояния ссылок: default, hover, visited, disabled.
+            </p>
+            <div class="preview">
+              <div class="preview-body flex-wrap gap-md">
+                <a href="#" style="color: var(--link-default)">Default link</a>
+                <a href="#" style="color: var(--link-hover)">Hover link</a>
+                <a href="#" style="color: var(--link-visited)">Visited link</a>
+                <span style="color: var(--link-disabled); cursor: not-allowed"
+                  >Disabled link</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- FOCUS -->
+          <div class="section" id="focus">
+            <div class="section-header">
+              <div class="section-icon">🎯</div>
+              <h2 class="section-title">Focus ring</h2>
+            </div>
+            <p class="section-desc">
+              Визуальный индикатор фокуса для accessibility.
+            </p>
+            <div class="preview">
+              <div class="preview-body flex-wrap gap-md">
+                <input
+                  class="input"
+                  placeholder="Кликни сюда (Tab)"
+                  style="max-width: 250px"
+                />
+                <button class="btn btn-primary">Кнопка</button>
+                <button class="btn btn-secondary">Secondary</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHARTS -->
+          <div class="section" id="charts">
+            <div class="section-header">
+              <div class="section-icon">📊</div>
+              <h2 class="section-title">Палитра графиков</h2>
+            </div>
+            <p class="section-desc">Цвета для data-визуализации.</p>
+            <div class="preview">
+              <div class="preview-body">
+                <div class="swatch-row">
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-1)"></div>
+                    <div class="info">
+                      <div class="num">--chart-1</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-2)"></div>
+                    <div class="info">
+                      <div class="num">--chart-2</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-3)"></div>
+                    <div class="info">
+                      <div class="num">--chart-3</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-4)"></div>
+                    <div class="info">
+                      <div class="num">--chart-4</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-5)"></div>
+                    <div class="info">
+                      <div class="num">--chart-5</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-6)"></div>
+                    <div class="info">
+                      <div class="num">--chart-6</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-7)"></div>
+                    <div class="info">
+                      <div class="num">--chart-7</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                  <div class="swatch">
+                    <div class="color" style="background: var(--chart-8)"></div>
+                    <div class="info">
+                      <div class="num">--chart-8</div>
+                      <div class="hex">—</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { ThemeService } from "./js/theme-service.js";
+      import { ThemeToggle } from "./js/theme-toggle.js";
+      import "./js/navigation.js";
+      import "./js/color-display.js";
+      import "./js/export-design.js";
+
+      const service = ThemeService;
+      service.init();
+
+      const toggle = new ThemeToggle(service);
+      toggle.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+/* ============================================
+   SIZES TOKENS — Marina AI Style
+   Width, height, max-width, габариты
+   ============================================ */
+:root {
+    /* Toggle */
+    --size-toggle-w: 44px;
+    --size-toggle-h: 24px;
+    --size-toggle-knob: 20px;
+    --size-toggle-offset: 2px;
+
+    /* Progress */
+    --size-progress-h: 6px;
+
+    /* Modal */
+    --size-modal-max-w: 480px;
+    --size-modal-width: 90%;
+    --size-modal-padding: 2rem;
+
+    /* Sidebar */
+    --size-sidebar-logo: 40px;
+    --size-sidebar-width: 272px;
+
+    /* Section (design system) */
+    --size-section-icon: 32px;
+
+    /* Swatch (design system) */
+    --size-swatch-color-h: 64px;
+}

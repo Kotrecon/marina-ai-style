@@ -1,0 +1,26 @@
+/* ============================================
+   RESET / BASE — Marina AI Style
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--link-default);
+    text-decoration: none;
+    transition: color var(--duration-normal) var(--ease-default);
+}
+
+a:hover { color: var(--link-hover); }
+a:visited { color: var(--link-visited); }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }

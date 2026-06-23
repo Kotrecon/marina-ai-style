@@ -1,0 +1,74 @@
+/* ============================================
+   DATA — Marina AI Style
+   Tokens + Styles (card, table)
+   ============================================ */
+
+/* Tokens */
+:root {
+    --card-radius: var(--radius-xl);
+
+    --card-bg: var(--bg-surface);
+    --card-border: var(--border-default);
+    --card-border-hover: var(--border-strong);
+    --card-shadow: var(--shadow-sm);
+    --card-shadow-hover: var(--shadow-lg);
+
+    --table-header-bg: var(--bg-surface);
+    --table-row-hover-bg: oklch(1 0 0 / 0.03);
+    --table-border: var(--border-subtle);
+    --table-border-header: var(--border-default);
+}
+
+html[data-theme="light"] {
+    --table-row-hover-bg: oklch(0 0 0 / 0.03);
+}
+
+/* Card */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: var(--space-card-padding);
+    transition: border-color var(--duration-normal) var(--ease-default),
+                transform var(--duration-normal) var(--ease-default),
+                box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card h3 { font-family: var(--font-display); font-weight: 600; margin-bottom: 4px; }
+.card p { font-size: 0.875rem; color: var(--text-secondary); }
+
+/* Table */
+.table-wrap {
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    background: var(--table-header-bg);
+    border-bottom: 1px solid var(--table-border-header);
+}
+
+td {
+    padding: 14px 20px;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--table-border);
+}
+
+tr:hover td { background: var(--table-row-hover-bg); }

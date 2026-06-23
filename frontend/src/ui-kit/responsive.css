@@ -1,0 +1,9 @@
+/* ============================================
+   RESPONSIVE — Marina AI Style
+   ============================================ */
+@media (max-width: 900px) {
+    .sidebar { display: none; }
+    .topbar { padding: var(--space-4); }
+    .content { padding: var(--space-6); }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
